@@ -1,0 +1,25 @@
+{
+  "name": "smartdoorlook",
+  "version": "1.0.0",
+  "description": "Smart Door Look Web Code",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "\u0014https://github.com/chkrish9/2019-Fall-CC-Team7-SmartLockForApartments"
+  },
+  "author": "Murali krishna sai Chukka, Ramakrishna AAlavala\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[\u001b[C\u001b[D\u001b[3~\u001b[3~\u001b[\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongoose": "^5.7.7",
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0",
+    "socket.io": "^2.3.0"
+  }
+}
