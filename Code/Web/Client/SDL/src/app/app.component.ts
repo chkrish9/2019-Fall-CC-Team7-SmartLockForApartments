@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {AuthService} from './services/common/auth.service';
+import { ToasterConfig } from 'angular2-toaster';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'SDL';
+  public config : ToasterConfig = new ToasterConfig({
+    positionClass: 'toast-bottom-right',
+    animation: 'fade'
+  });
+  constructor(
+    private authService:AuthService,
+  ) { }
 }
