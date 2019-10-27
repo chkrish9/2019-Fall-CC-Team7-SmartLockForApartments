@@ -15,7 +15,7 @@
     <div class="row margin-top-5px">
         <div class="col-sm-3" *ngFor="let room of rooms">
             <div class="border-style text-center">
-                <div><img src="assets/images/door.jpg" class="door"></div>
+                <div><img src="assets/images/door.jpg" class="door" (click)="goToApartment(room.roomno)"></div>
                 <p [ngClass]="(room.vacant==true) ? 'label label-success' : 'label label-info'">{{room.roomno}}</p>
             </div>
         </div>

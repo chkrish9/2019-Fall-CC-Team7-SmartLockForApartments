@@ -1,5 +1,6 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { BsModalService } from 'ngx-bootstrap/modal';
+import { Router } from '@angular/router';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 
 @Component({
@@ -12,22 +13,9 @@ export class HomeComponent implements OnInit {
   modalRef: BsModalRef;
   roomnumber:number;
   constructor(
-    private modalService: BsModalService
+    private modalService: BsModalService,
+    private router: Router
   ) {
-    // this.rooms = [
-    //   {
-    //     "roomno":1,
-    //     "vacant":true,
-    //   },
-    //   {
-    //     "roomno":2,
-    //     "vacant":false,
-    //   },
-    //   {
-    //     "roomno":3,
-    //     "vacant":true,
-    //   }
-    // ]
    }
 
   ngOnInit() {
@@ -45,7 +33,9 @@ export class HomeComponent implements OnInit {
     }
     this.modalRef.hide();
   }
-
+  goToApartment(roomno){
+    this.router.navigate(['apartment']);
+  }
   closeModal() {
     this.modalRef.hide();
   }

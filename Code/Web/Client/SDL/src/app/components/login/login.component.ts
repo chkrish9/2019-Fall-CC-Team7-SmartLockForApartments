@@ -33,7 +33,21 @@ export class LoginComponent implements OnInit {
         username: this.username,
         password: this.password
       }
-      if (this.username == 'admin' && this.password == 'admin') {
+      if ((this.username == 'admin' && this.password == 'admin') || 
+          (this.username == 'rama' || this.password == '1234')) {
+            if(this.username == 'admin'){
+              let loggedUser = {
+                username : this.username,
+                type:'admin'
+              }
+              localStorage.setItem('user', JSON.stringify(loggedUser));
+            }else{
+              let loggedUser = {
+                username : this.username,
+                type:'tenant'
+              }
+              localStorage.setItem('user', JSON.stringify(loggedUser));
+            }
         localStorage.setItem('isloggedin', 'true');
         this.router.navigate(['home']);
       } else {

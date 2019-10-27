@@ -8,6 +8,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { JwtModule } from "@auth0/angular-jwt";
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
@@ -17,10 +18,12 @@ import { AuthService } from './services/common/auth.service';
 import { AuthGuard } from './guards/auth.guard';
 import { HeaderComponent } from './components/common/header/header.component';
 import { SidemenuComponent } from './components/common/sidemenu/sidemenu.component';
+import { ApartmentComponent } from './components/apartment/apartment.component';
 
 const appRoutes : Routes = [
   {path : '', component: LoginComponent, canActivate:[AuthGuard] },
   {path : 'home', component: HomeComponent, canActivate:[AuthGuard] },
+  {path : 'apartment', component: ApartmentComponent, canActivate:[AuthGuard] },
 ];
 
 @NgModule({
@@ -29,7 +32,8 @@ const appRoutes : Routes = [
     LoginComponent,
     HomeComponent,
     HeaderComponent,
-    SidemenuComponent
+    SidemenuComponent,
+    ApartmentComponent
   ],
   imports: [
     BrowserModule,
@@ -40,6 +44,7 @@ const appRoutes : Routes = [
     BrowserAnimationsModule,
     ModalModule.forRoot(),
     ToasterModule.forRoot(),
+    BsDatepickerModule.forRoot(),
     RouterModule.forRoot(appRoutes)
   ],
   providers: [
