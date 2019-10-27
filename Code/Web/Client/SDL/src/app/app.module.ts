@@ -7,6 +7,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { JwtModule } from "@auth0/angular-jwt";
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
@@ -36,6 +37,7 @@ const appRoutes : Routes = [
     JwtModule,
     HttpClientModule,
     NgbModule,
+    BrowserAnimationsModule,
     ModalModule.forRoot(),
     ToasterModule.forRoot(),
     RouterModule.forRoot(appRoutes)

@@ -11,10 +11,10 @@ import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  username: String="";
-  password: String="";
+  username: String = "";
+  password: String = "";
   modalRef: BsModalRef;
-  fusername: String="";
+  fusername: String = "";
   constructor(
     private authService: AuthService,
     private router: Router,
@@ -33,7 +33,20 @@ export class LoginComponent implements OnInit {
         username: this.username,
         password: this.password
       }
-
+      if (this.username == 'admin' && this.password == 'admin') {
+        localStorage.setItem('isloggedin', 'true');
+        this.router.navigate(['home']);
+      } else {
+        var toast: Toast = {
+          type: 'error',
+          title: 'Error',
+          body: 'Invalid Username/Password.',
+          showCloseButton: true
+        };
+        this.toasterService.pop(toast);
+        console.log("Login falied.");
+        this.router.navigate(['/']);
+      }
       // this.authService.authenticateUser(user).subscribe(data => {
       //   console.log(data);
       //   if (data["success"]) {
@@ -53,7 +66,7 @@ export class LoginComponent implements OnInit {
       //   }
       // });
     }
-    else{
+    else {
       var toast: Toast = {
         type: 'error',
         title: 'Error',
@@ -64,17 +77,17 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  sendMail(){
-    this.authService.forgotPassword(this.fusername).subscribe(data => {
-      var toast: Toast = {
-        type: 'success',
-        title: 'Success',
-        body: 'An email has been sent. please check your email for temporary password.',
-        showCloseButton: true
-      };
-      this.toasterService.pop(toast);
-      this.modalRef.hide();
-    });
+  sendMail() {
+    // this.authService.forgotPassword(this.fusername).subscribe(data => {
+    //   var toast: Toast = {
+    //     type: 'success',
+    //     title: 'Success',
+    //     body: 'An email has been sent. please check your email for temporary password.',
+    //     showCloseButton: true
+    //   };
+    //   this.toasterService.pop(toast);
+    //   this.modalRef.hide();
+    // });
   }
 
   closeModal() {

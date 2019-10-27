@@ -1,1 +1,46 @@
-<p>home works!</p>
+<div *ngIf="(rooms.length <= 0)">
+    <div class="wrapper">
+        <button class="btn btn-primary" (click)="openModal(template)">Create Rooms</button>
+    </div>
+</div>
+<div *ngIf="(rooms.length > 0)">
+    <div class="row margin-top-20px">
+        <div class="col-sm-6">
+            <div class="input-group">
+                <span class="input-group-addon">Search Room</span>
+                <input type="text" class="form-control" id="search" aria-describedby="basic-addon3">
+            </div>
+        </div>
+    </div>
+    <div class="row margin-top-5px">
+        <div class="col-sm-3" *ngFor="let room of rooms">
+            <div class="border-style text-center">
+                <div><img src="assets/images/door.jpg" class="door"></div>
+                <p [ngClass]="(room.vacant==true) ? 'label label-success' : 'label label-info'">{{room.roomno}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+<ng-template #template>
+    <div class="modal-body">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="closeModal()"><span
+                    aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Create Rooms</h4>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label>Enter Number of Rooms</label>
+                        <input type="text" class="form-control" [(ngModel)]="roomnumber" name="roomnumber">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal" (click)="closeModal()">Close</button>
+            <button type="button" class="btn btn-primary" (click)="createRooms()">Create</button>
+        </div>
+    </div>
+</ng-template>

@@ -34,6 +34,8 @@ export class AuthService {
 
   loggedIn() {
     this.loadToken();
+    if('true' == localStorage.getItem('isloggedin'))
+    return true;
     // return this.jwtHelper.isTokenExpired(null, this.authToken);
     return false;
   }
@@ -53,19 +55,19 @@ export class AuthService {
     localStorage.clear();
   }
 
-  checkPrivilege(routename) {
-    if (this.privillages.indexOf(routename) > -1)
-      return true;
-  }
+  // checkPrivilege(routename) {
+  //   if (this.privillages.indexOf(routename) > -1)
+  //     return true;
+  // }
 
-  getUserPrivillages() {
-    let headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': this.getToken()
-    });
-    let url = this.prepEndpoint('login/privillages/' + this.getUser().id);
-    return this.http.get(url, { headers: headers });
-  }
+  // getUserPrivillages() {
+  //   let headers = new HttpHeaders({
+  //     'Content-Type': 'application/json',
+  //     'Authorization': this.getToken()
+  //   });
+  //   let url = this.prepEndpoint('login/privillages/' + this.getUser().id);
+  //   return this.http.get(url, { headers: headers });
+  // }
 
   forgotPassword(username) {
     var user = {

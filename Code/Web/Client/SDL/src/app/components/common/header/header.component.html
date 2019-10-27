@@ -11,10 +11,6 @@
         <a class="navbar-brand" href="#">SDL</a>
       </div>
       <div class="collapse navbar-collapse" id="navbar" [ngbCollapse]="isCollapsed">
-        <ul class="nav navbar-nav navbar-left">
-          <li *ngIf="authService.loggedIn()" [routerLinkActive]="['active']"
-            [routerLinkActiveOptions]="{ exact : true }"><a>Home</a></li>
-        </ul>
         <ul class="nav navbar-nav navbar-right">
           <li *ngIf="authService.loggedIn()"><a href="#">{{name}}</a></li>
           <li *ngIf="authService.loggedIn()"><a (click)="onLogoutClick()" href="#">Logout</a></li>
