@@ -13,7 +13,8 @@ export class HeaderComponent implements OnInit {
   constructor(
     private authService:AuthService,
     private router:Router
-  ) { }
+  ) {
+   }
 
   ngOnInit() {
   }
@@ -24,6 +25,12 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['/']);
     this.isCollapsed = !this.isCollapsed
     return false;
+  }
+
+  getUsername(){
+    let user= JSON.parse(localStorage.getItem('user'));
+    if(user)
+    return user.username;
   }
 
 }

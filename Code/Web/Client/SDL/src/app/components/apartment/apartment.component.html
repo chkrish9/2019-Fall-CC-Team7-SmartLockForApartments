@@ -2,7 +2,7 @@
         <div class="row">
           <div class="col-sm-12">
             <h2 class="pull-left">Tenant</h2>
-            <button class="btn btn-primary pull-right margin-top-20px" type="button" (click)="back()">Back to List</button>
+            <button *ngIf="(authService.getUserType() === 'admin')" class="btn btn-primary pull-right margin-top-20px" type="button" (click)="back()">Back to List</button>
           </div>
         </div>
         <form>

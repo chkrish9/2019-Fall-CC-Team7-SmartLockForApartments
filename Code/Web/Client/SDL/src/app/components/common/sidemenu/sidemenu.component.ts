@@ -1,5 +1,6 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { AuthService } from '../../../services/common/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sidemenu',
@@ -10,7 +11,8 @@ export class SidemenuComponent implements OnInit {
   headerHeight: number;
   windowHeight: number;
   constructor(
-    private authService:AuthService
+    private authService:AuthService,
+    private router:Router
   ) { }
 
   ngOnInit() {
@@ -23,7 +25,12 @@ export class SidemenuComponent implements OnInit {
   ngAfterViewInit(){
     this.resizeSideMenu();
   }
-
+  onLogoutClick(){
+    this.authService.logout();
+    console.log("Logout");
+    this.router.navigate(['/']);
+    return false;
+  }
   resizeSideMenu(){
     this.headerHeight = document.getElementsByClassName("navbar-color")[0]["offsetHeight"];
     this.windowHeight = window.innerHeight;

@@ -40,6 +40,11 @@ export class AuthService {
     return false;
   }
 
+  getUserType(){
+    let user= JSON.parse(localStorage.getItem('user'));
+    if(user)
+    return user.type;
+  }
   loadToken() {
     const token = localStorage.getItem('id_token');
     this.authToken = token;

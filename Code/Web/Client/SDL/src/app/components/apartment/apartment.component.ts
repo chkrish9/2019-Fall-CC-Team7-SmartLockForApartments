@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Toast, ToasterService } from 'angular2-toaster';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/common/auth.service';
 
 @Component({
   selector: 'app-apartment',
@@ -12,6 +13,7 @@ export class ApartmentComponent implements OnInit {
   constructor(
     private toasterService: ToasterService,
     private router: Router,
+    private authService: AuthService
   ) { }
 
   ngOnInit() {

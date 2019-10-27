@@ -12,8 +12,7 @@
       </div>
       <div class="collapse navbar-collapse" id="navbar" [ngbCollapse]="isCollapsed">
         <ul class="nav navbar-nav navbar-right">
-          <li *ngIf="authService.loggedIn()"><a href="#">{{name}}</a></li>
-          <li *ngIf="authService.loggedIn()"><a (click)="onLogoutClick()" href="#">Logout</a></li>
+          <li *ngIf="authService.loggedIn()"><a href="#">Hi, {{getUsername()}}</a></li>
         </ul>
       </div>
       <!--/.nav-collapse -->
