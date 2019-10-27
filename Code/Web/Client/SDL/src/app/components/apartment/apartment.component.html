@@ -71,7 +71,7 @@
               <button class="btn btn-primary form-control" type="button" (click)="update()">Update</button>
             </div> -->
             <div class="col-sm-2" >
-              <button class="btn btn-danger form-control" type="button" (click)="delete()">Vacate</button>
+              <button class="btn btn-danger form-control" type="button" (click)="delete()" *ngIf="(authService.getUserType() === 'admin')">Vacate</button>
             </div>
             <div class="col-sm-2" >
               <button class="btn btn-primary form-control" type="button" (click)="cancel()">Cancel</button>
