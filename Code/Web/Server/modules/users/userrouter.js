@@ -31,7 +31,8 @@ router.post('/create',passport.authenticate('jwt',{session : false}), (req, res,
         email : req.body.email,
         dateOfJoin : req.body.dateOfJoin,
         username : req.body.username,
-        password : req.body.password
+        password : req.body.password,
+        type : req.body.type
     });
     User.addUser(newUser, (err, user) =>{
         if(err){
@@ -53,7 +54,8 @@ router.put('/update/:id',passport.authenticate('jwt',{session : false}), functio
         email: req.body.email,
         dateOfJoin: req.body.dateOfJoin,
         username: req.body.username,
-        password: req.body.password
+        password: req.body.password,
+        type : req.body.type
     };
     User.updateUser(id, update, (err, todo) => {
          if (err) {
