@@ -46,10 +46,14 @@ export class RoomService {
   }
 
   getRooms() {
-    let headers = new HttpHeaders().set(
-      "Authorization",
-      this.authService.getToken()
-    );
+    // let headers = new HttpHeaders().set(
+    //   "Authorization",
+    //   this.authService.getToken()
+    // );
+    let headers = new HttpHeaders({
+      "Content-Type": "application/json",
+      Authorization: this.authService.getToken()
+    });
     let url = this.authService.prepEndpoint("room/all/");
     return this.http.get(url, { headers: headers });
   }
