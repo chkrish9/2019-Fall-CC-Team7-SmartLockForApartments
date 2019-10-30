@@ -1,42 +1,67 @@
-import { Component, OnInit, TemplateRef } from '@angular/core';
-import { BsModalService } from 'ngx-bootstrap/modal';
-import { Router } from '@angular/router';
-import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
-import { AuthService } from 'src/app/services/common/auth.service';
+import { Component, OnInit, TemplateRef } from "@angular/core";
+import { BsModalService } from "ngx-bootstrap/modal";
+import { Router } from "@angular/router";
+import { BsModalRef } from "ngx-bootstrap/modal/bs-modal-ref.service";
+import { AuthService } from "src/app/services/common/auth.service";
+import { RoomService } from "../../services/room/room.service";
+import { Toast, ToasterService } from "angular2-toaster";
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: "app-home",
+  templateUrl: "./home.component.html",
+  styleUrls: ["./home.component.css"]
 })
 export class HomeComponent implements OnInit {
-  rooms: any=[];
+  rooms: any = [];
   modalRef: BsModalRef;
-  roomnumber:number;
+  roomscount: number;
+  floornumber: number;
   constructor(
     private modalService: BsModalService,
     private router: Router,
-    private authService: AuthService
+    public authService: AuthService,
+    private roomService: RoomService,
+    private toasterService: ToasterService
   ) {
-   }
-
-  ngOnInit() {
+    this.getAllRooms();
   }
+
+  getAllRooms() {
+    this.roomService.getRooms().subscribe(data => {
+      this.rooms = data;
+    });
+  }
+  ngOnInit() {}
   openModal(template: TemplateRef<any>) {
-    this.modalRef = this.modalService.show(template, { class: 'modal-md' });
+    this.modalRef = this.modalService.show(template, { class: "modal-md" });
   }
   createRooms() {
-    for(let ind=0;ind<this.roomnumber;ind++){
+    let newRooms = [];
+    for (let ind = 0; ind < this.roomscount; ind++) {
       var room = {
-        "roomno":ind+1,
-        "vacant":true,
-      }
-      this.rooms.push(room);
+        roomnumber: this.floornumber + "-" + (ind + 1),
+        floor: this.floornumber,
+        isVacant: true,
+        user: this.authService.getUser().id
+      };
+      newRooms.push(room);
     }
+    this.roomService.addRooms(newRooms).subscribe(data => {
+      var toast: Toast = {
+        type: "success",
+        title: "Success",
+        body: "Rooms added successfully.",
+        showCloseButton: true
+      };
+      this.toasterService.pop(toast);
+      this.floornumber = null;
+      this.roomscount = null;
+      this.getAllRooms();
+    });
     this.modalRef.hide();
   }
-  goToApartment(roomno){
-    this.router.navigate(['apartment']);
+  goToApartment(roomno) {
+    this.router.navigate(["apartment"]);
   }
   closeModal() {
     this.modalRef.hide();
