@@ -45,7 +45,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div>\r\n        <div class=\"row\">\r\n          <div class=\"col-sm-12\">\r\n            <h2 class=\"pull-left\">Tenant</h2>\r\n            <button *ngIf=\"(authService.getUserType() === 'admin')\" class=\"btn btn-primary pull-right margin-top-20px\" type=\"button\" (click)=\"back()\">Back to List</button>\r\n          </div>\r\n        </div>\r\n        <form>\r\n          <div class=\"row\">\r\n            <div class=\"col-sm-4\">\r\n              <div class=\"form-group\">\r\n                <label>First Name</label>\r\n                <input type=\"text\" class=\"form-control\" [(ngModel)]=\"user.firstName\" name=\"firstName\">\r\n              </div>\r\n            </div>\r\n            <div class=\"col-sm-4\">\r\n              <div class=\"form-group\">\r\n                <label>Last Name</label>\r\n                <input type=\"text\" class=\"form-control\" [(ngModel)]=\"user.lastName\" name=\"lastName\">\r\n              </div>\r\n            </div>\r\n          </div>\r\n          <div class=\"row\">\r\n            <div class=\"col-sm-4\">\r\n              <div class=\"form-group\">\r\n                <label>Email</label>\r\n                <input type=\"text\" class=\"form-control\" [(ngModel)]=\"user.email\" name=\"email\">\r\n              </div>\r\n            </div>\r\n            <div class=\"col-sm-4\">\r\n              <div class=\"form-group\">\r\n                <label>Phone</label>\r\n                <input type=\"text\" class=\"form-control\" [(ngModel)]=\"user.phone\" name=\"phone\">\r\n              </div>\r\n            </div>\r\n          </div>\r\n          <div class=\"row\">\r\n            <div class=\"col-sm-4\">\r\n              <div class=\"form-group\">\r\n                <label>Username</label>\r\n                <input type=\"text\" class=\"form-control\" [(ngModel)]=\"user.username\" name=\"username\">\r\n              </div>\r\n            </div>\r\n            <div class=\"col-sm-4\">\r\n              <div class=\"form-group\">\r\n                <label>Date of Join</label>\r\n                <input type=\"text\" placeholder=\"Datepicker\" class=\"form-control\" [bsConfig]=\"{ dateInputFormat: 'MM-DD-YYYY', containerClass: 'theme-red' }\"\r\n                  bsDatepicker [(ngModel)]=\"user.dateOfJoin\" name=\"dateOfJoin\">\r\n              </div>\r\n            </div>\r\n          </div>\r\n          <div class=\"row\">\r\n            <div class=\"col-sm-4\">\r\n              <div class=\"form-group\">\r\n                <label>Password</label>\r\n                <input type=\"password\" class=\"form-control\" [(ngModel)]=\"user.password\" name=\"password\">\r\n              </div>\r\n            </div>\r\n            <div class=\"col-sm-4\">\r\n              <div class=\"form-group\">\r\n                <label>Confirm Password</label>\r\n                <input type=\"password\" class=\"form-control\" [(ngModel)]=\"user.cnfpassword\" name=\"cnfpassword\">\r\n              </div>\r\n            </div>\r\n          </div>\r\n          <div class=\"row\">\r\n            <div class=\"col-sm-2\" >\r\n              <button class=\"btn btn-primary form-control\" type=\"button\" (click)=\"save()\">Save</button>\r\n            </div>\r\n            <!-- <div class=\"col-sm-2\">\r\n              <button class=\"btn btn-primary form-control\" type=\"button\" (click)=\"update()\">Update</button>\r\n            </div> -->\r\n            <div class=\"col-sm-2\" >\r\n              <button class=\"btn btn-danger form-control\" type=\"button\" (click)=\"delete()\" *ngIf=\"(authService.getUserType() === 'admin')\">Vacate</button>\r\n            </div>\r\n            <div class=\"col-sm-2\" >\r\n              <button class=\"btn btn-primary form-control\" type=\"button\" (click)=\"cancel()\">Cancel</button>\r\n            </div>\r\n          </div>\r\n        </form>\r\n      </div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div>\r\n        <div class=\"row\">\r\n          <div class=\"col-sm-12\">\r\n            <h2 class=\"pull-left\">Tenant</h2>\r\n            <button *ngIf=\"(authService.getUserType() === 'admin')\" class=\"btn btn-primary pull-right margin-top-20px\" type=\"button\" (click)=\"back()\">Back to List</button>\r\n          </div>\r\n        </div>\r\n        <form>\r\n          <div class=\"row\">\r\n            <div class=\"col-sm-4\">\r\n              <div class=\"form-group\">\r\n                <label>First Name</label>\r\n                <input type=\"text\" class=\"form-control\" [(ngModel)]=\"user.firstName\" name=\"firstName\">\r\n              </div>\r\n            </div>\r\n            <div class=\"col-sm-4\">\r\n              <div class=\"form-group\">\r\n                <label>Last Name</label>\r\n                <input type=\"text\" class=\"form-control\" [(ngModel)]=\"user.lastName\" name=\"lastName\">\r\n              </div>\r\n            </div>\r\n          </div>\r\n          <div class=\"row\">\r\n            <div class=\"col-sm-4\">\r\n              <div class=\"form-group\">\r\n                <label>Email</label>\r\n                <input type=\"text\" class=\"form-control\" [(ngModel)]=\"user.email\" name=\"email\">\r\n              </div>\r\n            </div>\r\n            <div class=\"col-sm-4\">\r\n              <div class=\"form-group\">\r\n                <label>Phone</label>\r\n                <input type=\"text\" class=\"form-control\" [(ngModel)]=\"user.phone\" name=\"phone\">\r\n              </div>\r\n            </div>\r\n          </div>\r\n          <div class=\"row\">\r\n            <div class=\"col-sm-4\">\r\n              <div class=\"form-group\">\r\n                <label>Username</label>\r\n                <input type=\"text\" class=\"form-control\" [(ngModel)]=\"user.username\" name=\"username\">\r\n              </div>\r\n            </div>\r\n            <div class=\"col-sm-4\">\r\n              <div class=\"form-group\">\r\n                <label>Date of Join</label>\r\n                <input type=\"text\" placeholder=\"Datepicker\" class=\"form-control\" [bsConfig]=\"{ dateInputFormat: 'MM-DD-YYYY', containerClass: 'theme-red' }\"\r\n                  bsDatepicker [(ngModel)]=\"user.dateOfJoin\" name=\"dateOfJoin\">\r\n              </div>\r\n            </div>\r\n          </div>\r\n          <div class=\"row\">\r\n            <div class=\"col-sm-4\">\r\n              <div class=\"form-group\">\r\n                <label>Password</label>\r\n                <input type=\"password\" class=\"form-control\" [(ngModel)]=\"user.password\" name=\"password\">\r\n              </div>\r\n            </div>\r\n            <div class=\"col-sm-4\">\r\n              <div class=\"form-group\">\r\n                <label>Confirm Password</label>\r\n                <input type=\"password\" class=\"form-control\" [(ngModel)]=\"user.cnfpassword\" name=\"cnfpassword\">\r\n              </div>\r\n            </div>\r\n          </div>\r\n          <div class=\"row\">\r\n            <div class=\"col-sm-2\" *ngIf=\"this.isNew\"  >\r\n              <button class=\"btn btn-primary form-control\" type=\"button\" (click)=\"save()\">Save</button>\r\n            </div>\r\n            <div class=\"col-sm-2\" *ngIf=\"!this.isNew\">\r\n              <button class=\"btn btn-primary form-control\" type=\"button\"  (click)=\"update()\">Update</button>\r\n            </div>\r\n            <div class=\"col-sm-2\"  *ngIf=\"(authService.getUserType() === 'admin')\">\r\n              <button class=\"btn btn-danger form-control\" type=\"button\" (click)=\"delete()\">Vacate</button>\r\n            </div>\r\n            <div class=\"col-sm-2\" >\r\n              <button class=\"btn btn-primary form-control\" type=\"button\" (click)=\"cancel()\">Cancel</button>\r\n            </div>\r\n          </div>\r\n        </form>\r\n      </div>");
 
 /***/ }),
 
@@ -84,7 +84,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div *ngIf=\"authService.getUserType() === 'admin'\">\r\n  <div *ngIf=\"rooms.length <= 0\">\r\n    <div class=\"wrapper\">\r\n      <button class=\"btn btn-primary\" (click)=\"openModal(template)\">\r\n        Create Rooms\r\n      </button>\r\n    </div>\r\n  </div>\r\n  <div *ngIf=\"rooms.length > 0\">\r\n    <div class=\"row margin-top-20px\">\r\n      <div class=\"col-sm-6\">\r\n        <div class=\"input-group\">\r\n          <span class=\"input-group-addon\">Search Room</span>\r\n          <input\r\n            type=\"text\"\r\n            class=\"form-control\"\r\n            id=\"search\"\r\n            aria-describedby=\"basic-addon3\"\r\n          />\r\n        </div>\r\n      </div>\r\n      <div class=\"col-sm-6\">\r\n        <button class=\"btn btn-primary\" (click)=\"openModal(template)\">\r\n          Create Rooms\r\n        </button>\r\n      </div>\r\n    </div>\r\n    <div class=\"row margin-top-5px\">\r\n      <div class=\"col-sm-3\" *ngFor=\"let room of rooms\">\r\n        <div class=\"border-style text-center\">\r\n          <div>\r\n            <img\r\n              src=\"assets/images/door.jpg\"\r\n              class=\"door\"\r\n              (click)=\"goToApartment(room.roomno)\"\r\n            />\r\n          </div>\r\n          <p\r\n            [ngClass]=\"\r\n              room.isVacant == true ? 'label label-success' : 'label label-info'\r\n            \"\r\n          >\r\n            {{ room.roomnumber }}\r\n          </p>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <ng-template #template>\r\n    <div class=\"modal-body\">\r\n      <div class=\"modal-header\">\r\n        <button\r\n          type=\"button\"\r\n          class=\"close\"\r\n          data-dismiss=\"modal\"\r\n          aria-label=\"Close\"\r\n          (click)=\"closeModal()\"\r\n        >\r\n          <span aria-hidden=\"true\">&times;</span>\r\n        </button>\r\n        <h4 class=\"modal-title\" id=\"myModalLabel\">Create Rooms</h4>\r\n      </div>\r\n      <div class=\"modal-body\">\r\n        <div class=\"row\">\r\n          <div class=\"col-sm-12\">\r\n            <div class=\"form-group\">\r\n              <label>Enter Floor Number</label>\r\n              <input\r\n                type=\"text\"\r\n                class=\"form-control\"\r\n                [(ngModel)]=\"floornumber\"\r\n                name=\"floornumber\"\r\n              />\r\n            </div>\r\n          </div>\r\n          <div class=\"col-sm-12\">\r\n            <div class=\"form-group\">\r\n              <label>Enter Number of Rooms</label>\r\n              <input\r\n                type=\"text\"\r\n                class=\"form-control\"\r\n                [(ngModel)]=\"roomscount\"\r\n                name=\"roomscount\"\r\n              />\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <div class=\"modal-footer\">\r\n        <button\r\n          type=\"button\"\r\n          class=\"btn btn-default\"\r\n          data-dismiss=\"modal\"\r\n          (click)=\"closeModal()\"\r\n        >\r\n          Close\r\n        </button>\r\n        <button type=\"button\" class=\"btn btn-primary\" (click)=\"createRooms()\">\r\n          Create\r\n        </button>\r\n      </div>\r\n    </div>\r\n  </ng-template>\r\n</div>\r\n<div *ngIf=\"authService.getUserType() !== 'admin'\">\r\n  <div class=\"wrapper\">\r\n    <p>Page Under Construction!</p>\r\n  </div>\r\n</div>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div *ngIf=\"authService.getUserType() === 'admin'\">\r\n  <div *ngIf=\"rooms.length <= 0\">\r\n    <div class=\"wrapper\">\r\n      <button class=\"btn btn-primary\" (click)=\"openModal(template)\">\r\n        Create Rooms\r\n      </button>\r\n    </div>\r\n  </div>\r\n  <div *ngIf=\"rooms.length > 0\">\r\n    <div class=\"row margin-top-20px\">\r\n      <div class=\"col-sm-6\">\r\n        <div class=\"input-group\">\r\n          <span class=\"input-group-addon\">Search Room</span>\r\n          <input type=\"text\" class=\"form-control\" id=\"search\" aria-describedby=\"basic-addon3\" />\r\n        </div>\r\n      </div>\r\n      <div class=\"col-sm-6\">\r\n        <button class=\"btn btn-primary\" (click)=\"openModal(template)\">\r\n          Create Rooms\r\n        </button>\r\n      </div>\r\n    </div>\r\n    <div class=\"row margin-top-5px\">\r\n      <div class=\"col-sm-3\" *ngFor=\"let room of rooms\">\r\n        <div class=\"border-style text-center\">\r\n          <div>\r\n            <img src=\"assets/images/door.jpg\" class=\"door\" (click)=\"goToApartment(room._id,room.user)\" />\r\n          </div>\r\n          <p [ngClass]=\"\r\n              room.isVacant == true ? 'label label-success' : 'label label-info'\r\n            \">\r\n            {{ room.roomnumber }}\r\n          </p>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <ng-template #template>\r\n    <div class=\"modal-body\">\r\n      <div class=\"modal-header\">\r\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\" (click)=\"closeModal()\">\r\n          <span aria-hidden=\"true\">&times;</span>\r\n        </button>\r\n        <h4 class=\"modal-title\" id=\"myModalLabel\">Create Rooms</h4>\r\n      </div>\r\n      <div class=\"modal-body\">\r\n        <div class=\"row\">\r\n          <div class=\"col-sm-12\">\r\n            <div class=\"form-group\">\r\n              <label>Enter Floor Number</label>\r\n              <input type=\"text\" class=\"form-control\" [(ngModel)]=\"floornumber\" name=\"floornumber\" />\r\n            </div>\r\n          </div>\r\n          <div class=\"col-sm-12\">\r\n            <div class=\"form-group\">\r\n              <label>Enter Number of Rooms</label>\r\n              <input type=\"text\" class=\"form-control\" [(ngModel)]=\"roomscount\" name=\"roomscount\" />\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <div class=\"modal-footer\">\r\n        <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" (click)=\"closeModal()\">\r\n          Close\r\n        </button>\r\n        <button type=\"button\" class=\"btn btn-primary\" (click)=\"createRooms()\">\r\n          Create\r\n        </button>\r\n      </div>\r\n    </div>\r\n  </ng-template>\r\n</div>\r\n<div *ngIf=\"authService.getUserType() !== 'admin'\">\r\n  <div class=\"wrapper\">\r\n    <p>Page Under Construction!</p>\r\n  </div>\r\n</div>");
 
 /***/ }),
 
@@ -510,16 +510,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var angular2_toaster__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! angular2-toaster */ "./node_modules/angular2-toaster/angular2-toaster.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
 /* harmony import */ var src_app_services_common_auth_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/services/common/auth.service */ "./src/app/services/common/auth.service.ts");
+/* harmony import */ var _services_user_user_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../services/user/user.service */ "./src/app/services/user/user.service.ts");
+
 
 
 
 
 
 let ApartmentComponent = class ApartmentComponent {
-    constructor(toasterService, router, authService) {
+    constructor(toasterService, router, authService, userService) {
         this.toasterService = toasterService;
         this.router = router;
         this.authService = authService;
+        this.userService = userService;
         this.user = {
             "firstName": "",
             "lastName": "",
@@ -530,13 +533,15 @@ let ApartmentComponent = class ApartmentComponent {
             "dateOfJoin": "",
             "cnfpassword": ""
         };
-        this.isList = true;
         this.isNew = true;
+        if (localStorage.getItem("userId") !== null && localStorage.getItem("userId") !== "null") {
+            this.getUserById(localStorage.getItem("userId"));
+            this.isNew = false;
+        }
     }
     ngOnInit() {
     }
     new() {
-        this.isList = false;
         this.isNew = true;
         this.user = {
             "firstName": "",
@@ -552,11 +557,6 @@ let ApartmentComponent = class ApartmentComponent {
     back() {
         this.router.navigate(['home']);
     }
-    getAllUsers() {
-        // this.userService.getUsers().subscribe(data => {
-        //   this.users = data;
-        // });
-    }
     save() {
         if (this.user.firstName !== "" &&
             this.user.lastName !== "" &&
@@ -566,27 +566,40 @@ let ApartmentComponent = class ApartmentComponent {
             this.user.password !== "" &&
             this.user.dateOfJoin !== "" &&
             this.user.cnfpassword !== "") {
-            // if (this.user.password === this.user.cnfpassword) {
-            //   this.userService.addUser(this.user).subscribe(data => {
-            //     var toast: Toast = {
-            //       type: 'success',
-            //       title: 'Success',
-            //       body: 'User saved successfully.',
-            //       showCloseButton: true
-            //     };
-            //     this.toasterService.pop(toast);
-            //     this.isList = true;
-            //     this.getAllUsers();
-            //   });
-            // }else{
-            //   var toast: Toast = {
-            //     type: 'error',
-            //     title: 'Error',
-            //     body: 'Password mismatch.',
-            //     showCloseButton: true
-            //   };
-            //   this.toasterService.pop(toast);
-            // }
+            if (this.user.password === this.user.cnfpassword) {
+                this.user["type"] = "tenant";
+                this.user["roomId"] = localStorage.getItem("roomnumber");
+                this.userService.addUser(this.user).subscribe(data => {
+                    if (data["success"]) {
+                        var toast = {
+                            type: 'success',
+                            title: 'Success',
+                            body: 'User saved successfully.',
+                            showCloseButton: true
+                        };
+                        this.toasterService.pop(toast);
+                        this.getUserById(data["id"]);
+                    }
+                    else {
+                        var toast = {
+                            type: "error",
+                            title: "Error",
+                            body: "User failed to added.",
+                            showCloseButton: true
+                        };
+                        this.toasterService.pop(toast);
+                    }
+                });
+            }
+            else {
+                var toast = {
+                    type: 'error',
+                    title: 'Error',
+                    body: 'Password mismatch.',
+                    showCloseButton: true
+                };
+                this.toasterService.pop(toast);
+            }
         }
         else {
             var toast = {
@@ -598,40 +611,81 @@ let ApartmentComponent = class ApartmentComponent {
             this.toasterService.pop(toast);
         }
     }
+    getUserById(id) {
+        this.userService.getUserById(id).subscribe(data => {
+            if (data !== null) {
+                this.user.firstName = data["firstName"];
+                this.user.lastName = data["lastName"];
+                this.user.email = data["email"];
+                this.user.phone = data["phone"];
+                this.user.username = data["username"];
+                this.user.password = data["password"];
+                this.user.dateOfJoin = data["dateOfJoin"];
+            }
+            else {
+                var toast = {
+                    type: 'error',
+                    title: 'Error',
+                    body: 'There is some issue please contact admin.',
+                    showCloseButton: true
+                };
+                this.toasterService.pop(toast);
+            }
+        });
+    }
     delete() {
-        // this.userService.deleteUser(this.user["_id"]).subscribe(data => {
-        //   var toast: Toast = {
-        //     type: 'success',
-        //     title: 'Success',
-        //     body: 'User deleted successfully.',
-        //     showCloseButton: true
-        //   };
-        //   this.toasterService.pop(toast);
-        //   this.isList = true;
-        //   this.getAllUsers();
-        // });
+        this.userService.deleteUser(localStorage.getItem("userId")).subscribe(data => {
+            if (data["success"]) {
+                var toast = {
+                    type: 'success',
+                    title: 'Success',
+                    body: 'User deleted successfully.',
+                    showCloseButton: true
+                };
+                this.toasterService.pop(toast);
+                localStorage.removeItem("userId");
+                this.new();
+            }
+            else {
+                var toast = {
+                    type: 'error',
+                    title: 'Error',
+                    body: 'There is some issue please contact admin.',
+                    showCloseButton: true
+                };
+                this.toasterService.pop(toast);
+            }
+        });
     }
     update() {
-        // this.userService.updateUser(this.user).subscribe(data => {
-        //   var toast: Toast = {
-        //     type: 'success',
-        //     title: 'Success',
-        //     body: 'User updated successfully.',
-        //     showCloseButton: true
-        //   };
-        //   this.toasterService.pop(toast);
-        //   this.isList = true;
-        //   this.getAllUsers();
-        // });
-    }
-    cancel() {
-        // this.isList = true;
+        this.userService.updateUser(this.user).subscribe(data => {
+            if (data["success"]) {
+                var toast = {
+                    type: 'success',
+                    title: 'Success',
+                    body: 'User updated successfully.',
+                    showCloseButton: true
+                };
+                this.toasterService.pop(toast);
+                this.getUserById(data["id"]);
+            }
+            else {
+                var toast = {
+                    type: 'error',
+                    title: 'Error',
+                    body: 'There is some issue please contact admin.',
+                    showCloseButton: true
+                };
+                this.toasterService.pop(toast);
+            }
+        });
     }
 };
 ApartmentComponent.ctorParameters = () => [
     { type: angular2_toaster__WEBPACK_IMPORTED_MODULE_2__["ToasterService"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] },
-    { type: src_app_services_common_auth_service__WEBPACK_IMPORTED_MODULE_4__["AuthService"] }
+    { type: src_app_services_common_auth_service__WEBPACK_IMPORTED_MODULE_4__["AuthService"] },
+    { type: _services_user_user_service__WEBPACK_IMPORTED_MODULE_5__["UserService"] }
 ];
 ApartmentComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -850,25 +904,40 @@ let HomeComponent = class HomeComponent {
                 roomnumber: this.floornumber + "-" + (ind + 1),
                 floor: this.floornumber,
                 isVacant: true,
-                user: this.authService.getUser().id
+                user: null
             };
             newRooms.push(room);
         }
         this.roomService.addRooms(newRooms).subscribe(data => {
-            var toast = {
-                type: "success",
-                title: "Success",
-                body: "Rooms added successfully.",
-                showCloseButton: true
-            };
-            this.toasterService.pop(toast);
-            this.floornumber = null;
-            this.roomscount = null;
-            this.getAllRooms();
+            if (data["success"]) {
+                var toast = {
+                    type: "success",
+                    title: "Success",
+                    body: "Rooms added successfully.",
+                    showCloseButton: true
+                };
+                this.toasterService.pop(toast);
+                this.floornumber = null;
+                this.roomscount = null;
+                this.getAllRooms();
+            }
+            else {
+                var toast = {
+                    type: "error",
+                    title: "Error",
+                    body: "Rooms failed to added.",
+                    showCloseButton: true
+                };
+                this.toasterService.pop(toast);
+            }
         });
         this.modalRef.hide();
     }
-    goToApartment(roomno) {
+    filter() {
+    }
+    goToApartment(roomno, userid) {
+        localStorage.setItem("roomnumber", roomno);
+        localStorage.setItem("userId", userid);
         this.router.navigate(["apartment"]);
     }
     closeModal() {
@@ -954,6 +1023,8 @@ let LoginComponent = class LoginComponent {
                 if (data["success"]) {
                     this.authService.storeUserData(data["token"], data["user"]);
                     console.log("Logged In");
+                    if (data["user"].type !== 'admin')
+                        localStorage.setItem("userId", data["user"].id);
                     this.router.navigate(["home"]);
                 }
                 else {
@@ -1099,7 +1170,7 @@ let AuthService = class AuthService {
     constructor(http, jwtHelper) {
         this.http = http;
         this.jwtHelper = jwtHelper;
-        this.isDev = false;
+        this.isDev = true;
     }
     authenticateUser(user) {
         let headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]().set("Content-Type", "application/json");
@@ -1256,6 +1327,93 @@ RoomService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         providedIn: "root"
     })
 ], RoomService);
+
+
+
+/***/ }),
+
+/***/ "./src/app/services/user/user.service.ts":
+/*!***********************************************!*\
+  !*** ./src/app/services/user/user.service.ts ***!
+  \***********************************************/
+/*! exports provided: UserService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UserService", function() { return UserService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+/* harmony import */ var _common_auth_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../common/auth.service */ "./src/app/services/common/auth.service.ts");
+
+
+
+
+let UserService = class UserService {
+    constructor(http, authService) {
+        this.http = http;
+        this.authService = authService;
+    }
+    addUser(user) {
+        let headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+            'Content-Type': 'application/json',
+            'Authorization': this.authService.getToken()
+        });
+        let url = this.authService.prepEndpoint('users/create');
+        return this.http.post(url, user, { headers: headers });
+    }
+    updateUser(user) {
+        let headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+            'Content-Type': 'application/json',
+            'Authorization': this.authService.getToken()
+        });
+        let url = this.authService.prepEndpoint('users/update/');
+        url = url + `${localStorage.getItem("userId")}`;
+        return this.http.put(url, user, { headers: headers });
+    }
+    deleteUser(id) {
+        let headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+            'Content-Type': 'application/json',
+            'Authorization': this.authService.getToken()
+        });
+        let url = this.authService.prepEndpoint('users/delete/');
+        return this.http.delete(url + id, { headers: headers });
+    }
+    getUsers() {
+        let headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+            'Content-Type': 'application/json',
+            'Authorization': this.authService.getToken()
+        });
+        let url = this.authService.prepEndpoint('users/all/');
+        return this.http.get(url, { headers: headers });
+    }
+    getUserById(id) {
+        let headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+            'Content-Type': 'application/json',
+            'Authorization': this.authService.getToken()
+        });
+        let url = this.authService.prepEndpoint('users/getid/');
+        return this.http.get(url + id, { headers: headers });
+    }
+    getUserName(searchTerm) {
+        let headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+            'Content-Type': 'application/json',
+            'Authorization': this.authService.getToken()
+        });
+        let url = this.authService.prepEndpoint('users/get/');
+        return this.http.get(url + searchTerm, { headers: headers });
+    }
+};
+UserService.ctorParameters = () => [
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] },
+    { type: _common_auth_service__WEBPACK_IMPORTED_MODULE_3__["AuthService"] }
+];
+UserService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    })
+], UserService);
 
 
 
