@@ -578,6 +578,7 @@ let ApartmentComponent = class ApartmentComponent {
                             showCloseButton: true
                         };
                         this.toasterService.pop(toast);
+                        this.isNew = false;
                         this.getUserById(data["id"]);
                     }
                     else {
@@ -1170,7 +1171,7 @@ let AuthService = class AuthService {
     constructor(http, jwtHelper) {
         this.http = http;
         this.jwtHelper = jwtHelper;
-        this.isDev = true;
+        this.isDev = false;
     }
     authenticateUser(user) {
         let headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]().set("Content-Type", "application/json");

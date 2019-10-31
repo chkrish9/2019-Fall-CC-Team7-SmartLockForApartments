@@ -596,6 +596,7 @@
                                         showCloseButton: true
                                     };
                                     _this.toasterService.pop(toast);
+                                    _this.isNew = false;
                                     _this.getUserById(data["id"]);
                                 }
                                 else {
@@ -1140,7 +1141,7 @@
                 function AuthService(http, jwtHelper) {
                     this.http = http;
                     this.jwtHelper = jwtHelper;
-                    this.isDev = true;
+                    this.isDev = false;
                 }
                 AuthService.prototype.authenticateUser = function (user) {
                     var headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]().set("Content-Type", "application/json");

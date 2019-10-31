@@ -75,6 +75,7 @@ export class ApartmentComponent implements OnInit {
               showCloseButton: true
             };
             this.toasterService.pop(toast);
+            this.isNew = false;
             this.getUserById(data["id"])
           } else {
             var toast: Toast = {
