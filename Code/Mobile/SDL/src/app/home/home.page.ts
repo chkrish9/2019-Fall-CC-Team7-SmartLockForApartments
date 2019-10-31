@@ -54,11 +54,13 @@ export class HomePage {
       inputs: [
         {
           name: "floor",
-          type: "text"
+          type: "text",
+          placeholder:"Floor number"
         },
         {
           name: "roomcount",
-          type: "text"
+          type: "text",
+          placeholder:"Number of rooms"
         }
       ],
       buttons: [

@@ -62,7 +62,8 @@ export class LoginPage implements OnInit {
       inputs: [
         {
           name: "username",
-          type: "text"
+          type: "text",
+          placeholder: "username"
         }
       ],
       buttons: [
