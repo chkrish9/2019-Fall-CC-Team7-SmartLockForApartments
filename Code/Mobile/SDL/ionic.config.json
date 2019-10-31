@@ -1,5 +1,7 @@
 {
   "name": "SDL",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
