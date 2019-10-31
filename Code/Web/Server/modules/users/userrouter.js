@@ -2,11 +2,12 @@ const express = require("express");
 const router = express.Router();
 const passport = require("passport");
 const User = require("../../models/user/user");
+const config = require("../../config/passport");
 
 //Get
 router.get(
   "/all",
-  passport.authenticate("jwt", { session: false }),
+  config.checkToken,
   (req, res, next) => {
     User.getUsers((err, data) => {
       data.forEach(element => {
@@ -21,7 +22,7 @@ router.get(
 
 router.get(
   "/get/:name",
-  passport.authenticate("jwt", { session: false }),
+  config.checkToken,
   (req, res, next) => {
     var name = req.params.name;
     //console.log(name);
@@ -34,7 +35,7 @@ router.get(
 //Create
 router.post(
   "/create",
-  passport.authenticate("jwt", { session: false }),
+  config.checkToken,
   (req, res, next) => {
     let newUser = new User({
       firstName: req.body.firstName,
@@ -59,7 +60,7 @@ router.post(
 //Update
 router.put(
   "/update/:id",
-  passport.authenticate("jwt", { session: false }),
+  config.checkToken,
   function(req, res, next) {
     //console.log( req.body);
     var id = req.params.id;
@@ -86,7 +87,7 @@ router.put(
 //Delete
 router.delete(
   "/delete/:id",
-  passport.authenticate("jwt", { session: false }),
+  config.checkToken,
   (req, res, next) => {
     User.deleteUser(req.params.id, (err, result) => {
       if (err) {

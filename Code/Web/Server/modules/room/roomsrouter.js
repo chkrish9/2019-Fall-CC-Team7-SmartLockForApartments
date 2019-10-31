@@ -2,11 +2,12 @@ const express = require("express");
 const router = express.Router();
 const passport = require("passport");
 const Room = require("../../models/room/room");
+const config = require("../../config/passport");
 
 //Get
 router.get(
   "/all",
-  passport.authenticate("jwt", { session: false }),
+  config.checkToken,
   (req, res, next) => {
     Room.getRooms((err, data) => {
       res.json(data);
@@ -17,7 +18,7 @@ router.get(
 //Create
 router.post(
   "/create",
-  passport.authenticate("jwt", { session: false }),
+  config.checkToken,
   (req, res, next) => {
     let newRoom = new Room({
       roomnumber: req.body.roomnumber,
@@ -37,7 +38,7 @@ router.post(
 
 router.post(
   "/createrooms",
-  passport.authenticate("jwt", { session: false }),
+  config.checkToken,
   (req, res, next) => {
     let newRooms = req.body;
     Room.addRooms(newRooms, (err, rom) => {
@@ -53,7 +54,7 @@ router.post(
 //Update
 router.put(
   "/update/:id",
-  passport.authenticate("jwt", { session: false }),
+  config.checkToken,
   function(req, res, next) {
     //console.log( req.body);
     var id = req.params.id;
@@ -76,7 +77,7 @@ router.put(
 //Delete
 router.delete(
   "/delete/:id",
-  passport.authenticate("jwt", { session: false }),
+  config.checkToken,
   (req, res, next) => {
     Room.deleteRoom(req.params.id, (err, result) => {
       if (err) {
