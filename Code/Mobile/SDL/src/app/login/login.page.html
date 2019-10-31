@@ -7,7 +7,7 @@
 <ion-content>
   <ion-list>
     <ion-item class="text-center">
-        <ion-label><h1>SDL</h1></ion-label>
+      <ion-label><h1>SDL</h1></ion-label>
     </ion-item>
     <ion-item>
       <ion-label floating>Username</ion-label>
@@ -16,8 +16,15 @@
 
     <ion-item>
       <ion-label floating>Password</ion-label>
-      <ion-input type="password" [(ngModel)]="password" name="password"></ion-input>
+      <ion-input
+        type="password"
+        [(ngModel)]="password"
+        name="password"
+      ></ion-input>
     </ion-item>
   </ion-list>
   <ion-button expand="block" (click)="login()">Login</ion-button>
+  <ion-button expand="block" (click)="presentForgotPasswordPrompt()"
+    >Forgot Password</ion-button
+  >
 </ion-content>

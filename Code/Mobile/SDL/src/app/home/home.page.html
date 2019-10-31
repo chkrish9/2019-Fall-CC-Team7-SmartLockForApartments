@@ -10,31 +10,53 @@
 </ion-header>
 
 <ion-content>
-    <div *ngIf="(authService.getUserType() === 'admin')">
-        <div *ngIf="(rooms.length <= 0)">
-            <div class="wrapper">
-                <ion-button (click)="presentAlertPrompt()" expand="block">Create Rooms</ion-button>
-            </div>
+  <div *ngIf="authService.getUserType() === 'admin'">
+    <div *ngIf="rooms.length <= 0">
+      <div class="wrapper">
+        <ion-button (click)="presentAlertPrompt()" expand="block"
+          >Create Rooms</ion-button
+        >
+      </div>
+    </div>
+    <div *ngIf="rooms.length > 0">
+      <div class="row margin-top-20px">
+        <div class="col-sm-6">
+          <div class="input-group">
+            <span class="input-group-addon">Search Room</span>
+            <input
+              type="text"
+              class="form-control"
+              id="search"
+              aria-describedby="basic-addon3"
+            />
+          </div>
         </div>
-        <div *ngIf="(rooms.length > 0)">
-            <div class="row margin-top-20px">
-                <div class="col-sm-6">
-                    <div class="input-group">
-                        <span class="input-group-addon">Search Room</span>
-                        <input type="text" class="form-control" id="search" aria-describedby="basic-addon3">
-                    </div>
-                </div>
-            </div>
-            <div class="row margin-top-5px">
-                <div class="col-sm-3 padding-5px-30px" *ngFor="let room of rooms">
-                    <div class="border-style text-center list-box">
-                        <img src="assets/images/door.jpg" class="door" (click)="goToApartment(room.roomno)">
-                        <p [ngClass]="(room.vacant==true) ? 'label label-success' : 'label label-info'"> Room Number : {{room.roomno}}</p>
-                    </div>
-                </div>
-            </div>
+        <ion-button (click)="presentAlertPrompt()" expand="block"
+          >Create Rooms</ion-button
+        >
+      </div>
+      <div class="row margin-top-5px">
+        <div class="col-sm-3 padding-5px-30px" *ngFor="let room of rooms">
+          <div class="border-style text-center list-box">
+            <img
+              src="assets/images/door.jpg"
+              class="door"
+              (click)="goToApartment(room._id, room.user)"
+            />
+            <p
+              [ngClass]="
+                room.isVacant == true
+                  ? 'label label-success'
+                  : 'label label-info'
+              "
+            >
+              Room Number : {{ room.roomnumber }}
+            </p>
+          </div>
         </div>
-        <ng-template #template>
+      </div>
+    </div>
+    <!-- <ng-template #template>
             <div class="modal-body">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="closeModal()"><span
@@ -56,11 +78,11 @@
                     <button type="button" class="btn btn-primary" (click)="createRooms()">Create</button>
                 </div>
             </div>
-        </ng-template>
+        </ng-template> -->
+  </div>
+  <div *ngIf="authService.getUserType() !== 'admin'">
+    <div class="wrapper">
+      <p>Page Under Construction!</p>
     </div>
-    <div *ngIf="(authService.getUserType() !== 'admin')">
-        <div class="wrapper">
-            <p>Page Under Construction!</p>
-        </div>
-    </div>
+  </div>
 </ion-content>
