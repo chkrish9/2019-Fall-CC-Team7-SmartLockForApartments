@@ -4,6 +4,7 @@ const passport = require("passport");
 const User = require("../../models/user/user");
 const Room = require("../../models/room/room");
 const config = require("../../config/passport");
+const email = require("../../config/email");
 
 //Get
 router.get(
@@ -76,7 +77,17 @@ router.post(
             room.user = user._id;
             room.isVacant = false;
             Room.updateRoom(room._id, room, (err, room) => {
-              res.json({ success: true, id: user._id, msg: "User Added." });
+              var emailBody =
+                "Hi " +
+                user.firstName +
+                " " +
+                user.lastName +
+                ",</br> Your account has been created. Please find the username and password below.</br> " +
+                "Username: "+user.username +" and Password: "+req.body.password
+                ".</br>Thanks,</br>Admin.";
+
+              var subject = "New Account Created.";
+              email.sendEmail(res, user.email, subject, emailBody,{ success: true, id: user._id, msg: "User Added." });
             })
           }
         })
