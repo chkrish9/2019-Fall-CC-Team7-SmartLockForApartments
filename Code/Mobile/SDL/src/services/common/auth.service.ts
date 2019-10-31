@@ -15,9 +15,6 @@ export class AuthService {
   }
 
   authenticateUser(user) {
-    // this.presentToast(
-    //   "authenticateUser"
-    // );
     let headers = new HttpHeaders().set("Content-Type", "application/json");
     let url = this.prepEndpoint("login/authenticate");
     return this.http.post(url, user, { headers: headers });
