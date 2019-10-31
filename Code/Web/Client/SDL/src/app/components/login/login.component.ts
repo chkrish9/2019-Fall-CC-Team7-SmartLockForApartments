@@ -20,9 +20,9 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private toasterService: ToasterService,
     private modalService: BsModalService
-  ) {}
+  ) { }
 
-  ngOnInit() {}
+  ngOnInit() { }
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template, { class: "modal-md" });
   }
@@ -37,6 +37,8 @@ export class LoginComponent implements OnInit {
         if (data["success"]) {
           this.authService.storeUserData(data["token"], data["user"]);
           console.log("Logged In");
+          if (data["user"].type !== 'admin')
+            localStorage.setItem("userId", data["user"].id);
           this.router.navigate(["home"]);
         } else {
           var toast: Toast = {

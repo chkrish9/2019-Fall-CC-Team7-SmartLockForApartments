@@ -27,6 +27,10 @@ module.exports.getRoomById = function(id, callback) {
   Room.findById(id, callback);
 };
 
+module.exports.getRoomByUserId = function(id, callback) {
+  Room.findOne({ 'user': id }, callback);
+};
+
 module.exports.addRoom = function(newRoom, callback) {
   //console.log(newUser);
   newRoom.save(callback);

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Toast, ToasterService } from 'angular2-toaster';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/common/auth.service';
+import { UserService } from '../../services/user/user.service';
 
 @Component({
   selector: 'app-apartment',
@@ -13,8 +14,14 @@ export class ApartmentComponent implements OnInit {
   constructor(
     private toasterService: ToasterService,
     private router: Router,
-    private authService: AuthService
-  ) { }
+    private authService: AuthService,
+    private userService: UserService
+  ) {
+    if (localStorage.getItem("userId") !== null && localStorage.getItem("userId") !== "null") {
+      this.getUserById(localStorage.getItem("userId"));
+      this.isNew = false;
+    }
+  }
 
   ngOnInit() {
   }
@@ -29,10 +36,8 @@ export class ApartmentComponent implements OnInit {
     "cnfpassword": ""
   };
   users: any;
-  isList: boolean = true;
   isNew: boolean = true;
   new() {
-    this.isList = false;
     this.isNew = true;
     this.user = {
       "firstName": "",
@@ -49,12 +54,6 @@ export class ApartmentComponent implements OnInit {
     this.router.navigate(['home']);
   }
 
-  getAllUsers() {
-    // this.userService.getUsers().subscribe(data => {
-    //   this.users = data;
-    // });
-  }
-
   save() {
     if (this.user.firstName !== "" &&
       this.user.lastName !== "" &&
@@ -64,27 +63,38 @@ export class ApartmentComponent implements OnInit {
       this.user.password !== "" &&
       this.user.dateOfJoin !== "" &&
       this.user.cnfpassword !== "") {
-      // if (this.user.password === this.user.cnfpassword) {
-      //   this.userService.addUser(this.user).subscribe(data => {
-      //     var toast: Toast = {
-      //       type: 'success',
-      //       title: 'Success',
-      //       body: 'User saved successfully.',
-      //       showCloseButton: true
-      //     };
-      //     this.toasterService.pop(toast);
-      //     this.isList = true;
-      //     this.getAllUsers();
-      //   });
-      // }else{
-      //   var toast: Toast = {
-      //     type: 'error',
-      //     title: 'Error',
-      //     body: 'Password mismatch.',
-      //     showCloseButton: true
-      //   };
-      //   this.toasterService.pop(toast);
-      // }
+      if (this.user.password === this.user.cnfpassword) {
+        this.user["type"] = "tenant";
+        this.user["roomId"] = localStorage.getItem("roomnumber");
+        this.userService.addUser(this.user).subscribe(data => {
+          if (data["success"]) {
+            var toast: Toast = {
+              type: 'success',
+              title: 'Success',
+              body: 'User saved successfully.',
+              showCloseButton: true
+            };
+            this.toasterService.pop(toast);
+            this.getUserById(data["id"])
+          } else {
+            var toast: Toast = {
+              type: "error",
+              title: "Error",
+              body: "User failed to added.",
+              showCloseButton: true
+            };
+            this.toasterService.pop(toast);
+          }
+        });
+      } else {
+        var toast: Toast = {
+          type: 'error',
+          title: 'Error',
+          body: 'Password mismatch.',
+          showCloseButton: true
+        };
+        this.toasterService.pop(toast);
+      }
     } else {
       var toast: Toast = {
         type: 'error',
@@ -95,33 +105,71 @@ export class ApartmentComponent implements OnInit {
       this.toasterService.pop(toast);
     }
   }
+
+  getUserById(id) {
+    this.userService.getUserById(id).subscribe(data => {
+      if (data !== null) {
+        this.user.firstName = data["firstName"];
+        this.user.lastName = data["lastName"];
+        this.user.email = data["email"];
+        this.user.phone = data["phone"];
+        this.user.username = data["username"];
+        this.user.password = data["password"];
+        this.user.dateOfJoin = data["dateOfJoin"];
+      } else {
+        var toast: Toast = {
+          type: 'error',
+          title: 'Error',
+          body: 'There is some issue please contact admin.',
+          showCloseButton: true
+        };
+        this.toasterService.pop(toast);
+      }
+    });
+  }
   delete() {
-    // this.userService.deleteUser(this.user["_id"]).subscribe(data => {
-    //   var toast: Toast = {
-    //     type: 'success',
-    //     title: 'Success',
-    //     body: 'User deleted successfully.',
-    //     showCloseButton: true
-    //   };
-    //   this.toasterService.pop(toast);
-    //   this.isList = true;
-    //   this.getAllUsers();
-    // });
+    this.userService.deleteUser(localStorage.getItem("userId") ).subscribe(data => {
+      if (data["success"]) {
+        var toast: Toast = {
+          type: 'success',
+          title: 'Success',
+          body: 'User deleted successfully.',
+          showCloseButton: true
+        };
+        this.toasterService.pop(toast);
+        localStorage.removeItem("userId");
+        this.new()
+      } else {
+        var toast: Toast = {
+          type: 'error',
+          title: 'Error',
+          body: 'There is some issue please contact admin.',
+          showCloseButton: true
+        };
+        this.toasterService.pop(toast);
+      }
+    });
   }
   update() {
-    // this.userService.updateUser(this.user).subscribe(data => {
-    //   var toast: Toast = {
-    //     type: 'success',
-    //     title: 'Success',
-    //     body: 'User updated successfully.',
-    //     showCloseButton: true
-    //   };
-    //   this.toasterService.pop(toast);
-    //   this.isList = true;
-    //   this.getAllUsers();
-    // });
-  }
-  cancel() {
-    // this.isList = true;
+    this.userService.updateUser(this.user).subscribe(data => {
+      if (data["success"]) {
+        var toast: Toast = {
+          type: 'success',
+          title: 'Success',
+          body: 'User updated successfully.',
+          showCloseButton: true
+        };
+        this.toasterService.pop(toast);
+        this.getUserById(data["id"])
+      } else {
+        var toast: Toast = {
+          type: 'error',
+          title: 'Error',
+          body: 'There is some issue please contact admin.',
+          showCloseButton: true
+        };
+        this.toasterService.pop(toast);
+      }
+    });
   }
 }

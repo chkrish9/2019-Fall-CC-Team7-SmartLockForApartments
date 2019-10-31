@@ -31,7 +31,7 @@ export class HomeComponent implements OnInit {
       this.rooms = data;
     });
   }
-  ngOnInit() {}
+  ngOnInit() { }
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template, { class: "modal-md" });
   }
@@ -42,25 +42,40 @@ export class HomeComponent implements OnInit {
         roomnumber: this.floornumber + "-" + (ind + 1),
         floor: this.floornumber,
         isVacant: true,
-        user: this.authService.getUser().id
+        user: null
       };
       newRooms.push(room);
     }
     this.roomService.addRooms(newRooms).subscribe(data => {
-      var toast: Toast = {
-        type: "success",
-        title: "Success",
-        body: "Rooms added successfully.",
-        showCloseButton: true
-      };
-      this.toasterService.pop(toast);
-      this.floornumber = null;
-      this.roomscount = null;
-      this.getAllRooms();
+      if (data["success"]) {
+        var toast: Toast = {
+          type: "success",
+          title: "Success",
+          body: "Rooms added successfully.",
+          showCloseButton: true
+        };
+        this.toasterService.pop(toast);
+        this.floornumber = null;
+        this.roomscount = null;
+        this.getAllRooms();
+      } else {
+        var toast: Toast = {
+          type: "error",
+          title: "Error",
+          body: "Rooms failed to added.",
+          showCloseButton: true
+        };
+        this.toasterService.pop(toast);
+      }
     });
     this.modalRef.hide();
   }
-  goToApartment(roomno) {
+  filter() {
+
+  }
+  goToApartment(roomno, userid) {
+    localStorage.setItem("roomnumber", roomno);
+    localStorage.setItem("userId", userid);
     this.router.navigate(["apartment"]);
   }
   closeModal() {

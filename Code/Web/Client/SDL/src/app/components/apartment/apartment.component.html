@@ -64,14 +64,14 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-sm-2" >
+            <div class="col-sm-2" *ngIf="this.isNew"  >
               <button class="btn btn-primary form-control" type="button" (click)="save()">Save</button>
             </div>
-            <!-- <div class="col-sm-2">
-              <button class="btn btn-primary form-control" type="button" (click)="update()">Update</button>
-            </div> -->
-            <div class="col-sm-2" >
-              <button class="btn btn-danger form-control" type="button" (click)="delete()" *ngIf="(authService.getUserType() === 'admin')">Vacate</button>
+            <div class="col-sm-2" *ngIf="!this.isNew">
+              <button class="btn btn-primary form-control" type="button"  (click)="update()">Update</button>
+            </div>
+            <div class="col-sm-2"  *ngIf="(authService.getUserType() === 'admin')">
+              <button class="btn btn-danger form-control" type="button" (click)="delete()">Vacate</button>
             </div>
             <div class="col-sm-2" >
               <button class="btn btn-primary form-control" type="button" (click)="cancel()">Cancel</button>
