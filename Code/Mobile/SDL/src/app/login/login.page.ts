@@ -26,8 +26,13 @@ export class LoginPage implements OnInit {
         username: this.username,
         password: this.password
       };
+      // this.presentToast(
+      //   "hi"
+      // );
       this.authService.authenticateUser(user).subscribe(data => {
-        console.log("hi");
+        this.presentToast(
+            "resp"
+          );
         console.log(JSON.stringify(data));
         if (data["success"]) {
           this.authService.storeUserData(data["token"], data["user"]);

@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { JwtHelperService } from "@auth0/angular-jwt";
+import { ToastController } from '@ionic/angular';
 @Injectable({
   providedIn: "root"
 })
@@ -9,11 +10,14 @@ export class AuthService {
   isDev: boolean;
   user: any;
   privillages: any;
-  constructor(private http: HttpClient, public jwtHelper: JwtHelperService) {
+  constructor(private http: HttpClient, public jwtHelper: JwtHelperService, public toastCtrl: ToastController,) {
     this.isDev = true;
   }
 
   authenticateUser(user) {
+    // this.presentToast(
+    //   "authenticateUser"
+    // );
     let headers = new HttpHeaders().set("Content-Type", "application/json");
     let url = this.prepEndpoint("login/authenticate");
     return this.http.post(url, user, { headers: headers });
@@ -84,5 +88,14 @@ export class AuthService {
     } else {
       return "http://168.61.149.224/" + ep;
     }
+  }
+
+  async presentToast(msg) {
+    const toast = await this.toastCtrl.create({
+      message: msg,
+      position: "top",
+      duration: 3000
+    });
+    toast.present();
   }
 }
