@@ -38,4 +38,14 @@ $(document).ready(function() {
       );
     }
   });
+  $(".enter").click(function() {
+    console.log(parseInt(this.innerText));
+  });
+  $(".delete").click(function() {
+    $("#txtPassCode").val(
+      $("#txtPassCode")
+        .val()
+        .slice(0, -1)
+    );
+  });
 });

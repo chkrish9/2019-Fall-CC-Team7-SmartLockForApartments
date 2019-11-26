@@ -1,4 +1,6 @@
-.num {
+.num,
+.enter,
+.delete {
   text-align: center;
   padding: 2.2em;
   border: 1px solid;
