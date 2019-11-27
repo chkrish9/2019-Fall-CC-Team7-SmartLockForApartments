@@ -7,10 +7,8 @@ const { app, BrowserWindow } = electron;
 let mainWindow;
 
 app.on("ready", function() {
-  const electronScreen = electron.screen;
-  const { width, height } = electronScreen.getPrimaryDisplay().workAreaSize;
-  mainWindow = new BrowserWindow({width, height, frame: false });
-  mainWindow.setFullScreen(true);
+  mainWindow = new BrowserWindow({ width: 800, height: 480,frame: false });
+  //mainWindow.setFullScreen(true);
   mainWindow.loadURL(
     url.format({
       pathname: path.join(__dirname, "index.html"),

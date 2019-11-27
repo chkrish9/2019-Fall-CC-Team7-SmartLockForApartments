@@ -2,18 +2,17 @@
 .enter,
 .delete {
   text-align: center;
-  padding: 2.2em;
+  padding: 5%;
   border: 1px solid;
-  width: 6em;
+  width: 20%;
   float: left;
-  margin: 1em auto;
-  border-radius: 3em;
+  margin: 1% auto;
+  border-radius: 30%;
   cursor: pointer;
-  height: 6em;
 }
 .numberpad {
-  width: 50em;
-  margin: 5em auto;
+  width: 100%;
+  margin: 1% auto;
 }
 .num-row {
   display: flex;
@@ -23,11 +22,14 @@
 }
 .camera-canvas {
   text-align: center;
-  margin-top: 14em;
+  margin-top: 10%;
 }
 
 .input-style {
-  margin-top: 3em;
-  height: 2em;
+  margin-top: 10%;
+  height: 100%;
   font-size: 3em;
+}
+.video-style{
+  width: 100%;
 }
