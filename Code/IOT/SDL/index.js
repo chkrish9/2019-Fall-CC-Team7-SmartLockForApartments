@@ -7,7 +7,7 @@ const { app, BrowserWindow } = electron;
 let mainWindow;
 
 app.on("ready", function() {
-  mainWindow = new BrowserWindow({ width: 800, height: 600, frame: false });
+  mainWindow = new BrowserWindow({ frame: false });
   mainWindow.setFullScreen(true);
   mainWindow.loadURL(
     url.format({
