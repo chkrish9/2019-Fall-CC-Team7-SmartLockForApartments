@@ -57,7 +57,7 @@ module.exports.generateCode = function(callback) {
 };
 
 module.exports.getByCode = function(code, callback) {
-  const query = { code: code };
+  const query = { code: code, active: true };
   //console.log(query);
   Access.findOne(query, callback);
 };

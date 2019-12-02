@@ -4,6 +4,7 @@ import { Router } from "@angular/router";
 import { BsModalRef } from "ngx-bootstrap/modal/bs-modal-ref.service";
 import { AuthService } from "src/app/services/common/auth.service";
 import { RoomService } from "../../services/room/room.service";
+import { HomeService } from "../../services/home/home.service";
 import { Toast, ToasterService } from "angular2-toaster";
 
 @Component({
@@ -16,13 +17,20 @@ export class HomeComponent implements OnInit {
   modalRef: BsModalRef;
   roomscount: number;
   floornumber: number;
+  images: any = [];
   constructor(
     private modalService: BsModalService,
     private router: Router,
     public authService: AuthService,
     private roomService: RoomService,
+    private homeService: HomeService,
     private toasterService: ToasterService
   ) {
+    if(authService.getUserType() !== 'admin'){
+      let roomnumber = localStorage.getItem("roomnumber");
+      this.getAllByRommno(roomnumber);
+    }
+    else
     this.getAllRooms();
   }
 
@@ -80,5 +88,10 @@ export class HomeComponent implements OnInit {
   }
   closeModal() {
     this.modalRef.hide();
+  }
+  getAllByRommno(roomno) {
+    this.homeService.getAllByRommno(roomno).subscribe(data => {
+      this.images = data;
+    });
   }
 }

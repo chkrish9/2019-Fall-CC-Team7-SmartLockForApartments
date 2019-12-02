@@ -23,6 +23,7 @@ router.post("/authenticate", (req, res, next) => {
                     expiresIn: 86400 //1day
                 });
                 Room.getRoomByUserId(user._id,(err, data)=>{
+                    let roomno = (data===null)?"":data.roomnumber;
                     console.log(data);
                     res.json({
                         success: true,
@@ -31,7 +32,7 @@ router.post("/authenticate", (req, res, next) => {
                             id: user._id,
                             username: user.username,
                             type: user.type,
-                            roomnumber:data.roomnumber
+                            roomnumber:roomno
                         }
                     });
                 });

@@ -73,41 +73,20 @@
 <div *ngIf="authService.getUserType() !== 'admin'">
   <div class="margin-top-20px">
     <div class="row margin-top-5px">
-      <div class="col-sm-3">
-        <div class="">
-          <div>
-            <img src="assets/images/1.PNG" class="door" />
+      <div *ngIf="images.length>0">
+        <div class="col-sm-3" *ngFor="let image of images">
+          <div class="">
+            <div>
+              <img [src]="this.authService.prepEndpoint('home/image/')+image.filename" class="door" />
+            </div>
           </div>
         </div>
       </div>
-      <div class="col-sm-3">
-          <div class="">
-            <div>
-              <img src="assets/images/2.PNG" class="door" />
-            </div>
-          </div>
+      <div *ngIf="images.length === 0">
+        <div class="wrapper">
+          <p>No Data Available!!</p>
         </div>
-        <div class="col-sm-3">
-          <div class="">
-            <div>
-              <img src="assets/images/3.PNG" class="door" />
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-3">
-          <div class="">
-            <div>
-              <img src="assets/images/4.PNG" class="door" />
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-3">
-          <div class="">
-            <div>
-              <img src="assets/images/5.PNG" class="door" />
-            </div>
-          </div>
-        </div>
+      </div>
     </div>
   </div>
 </div>

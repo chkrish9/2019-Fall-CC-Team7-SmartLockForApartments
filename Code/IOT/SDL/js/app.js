@@ -28,7 +28,7 @@ function handleError(error) {
     error.name
   );
 }
-
+var filename = "";
 navigator.mediaDevices
   .getUserMedia(constraints)
   .then(handleSuccess)
@@ -58,16 +58,6 @@ $(document).ready(function () {
   });
   $(".enter").click(function () {
     takepicture();
-    $(".message-success").hide();
-    $(".message-fail").hide();
-    let passcode = $("#txtPassCode").val();
-
-    if (passcode != "") {
-      $(".message-success").show();
-      codes.splice(codes.indexOf(passcode), 1);
-    } else {
-      $(".message-fail").show();
-    }
   });
   $(".delete").click(function () {
     $("#txtPassCode").val(
@@ -82,7 +72,7 @@ function takepicture() {
   const canvas = window.canvas = document.querySelector('canvas');
   canvas.width = 480;
   canvas.height = 360;
- 
+
   canvas.width = video.videoWidth;
   canvas.height = video.videoHeight;
   var context = canvas.getContext("2d");
@@ -100,6 +90,26 @@ function takepicture() {
     data: postData,
     success: function (data, textStatus, jQxhr) {
       console.log(data);
+      filename= JSON.parse(data).filename;
+      let passcode = $("#txtPassCode").val();
+      $.ajax({
+        url: 'http://localhost:3000/access/get/' + passcode+'/'+filename,
+        type: 'GET',
+        success: function (data) {
+          console.log(data);
+          $(".message-success").hide();
+          $(".message-fail").hide();
+          if (data) {
+            $(".message-success").show();
+          } else {
+            $(".message-fail").show();
+          }
+        },
+        error: function (e) {
+          //called when there is an error
+          console.log(e.message);
+        }
+      });
     },
     error: function (jqXhr, textStatus, errorThrown) {
       console.log(errorThrown);

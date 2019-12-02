@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Access = require("../../models/access/access");
+const Home = require("../../models/home/home");
 const config = require("../../config/passport");
 
 //Get
@@ -20,14 +21,77 @@ router.get("/allbyrommno/:roomno", config.checkToken, (req, res, next) => {
   });
 });
 
-router.get("/get/:code", config.checkToken, (req, res, next) => {
-  //router.get("/get/:code", (req, res, next) => {
+//router.get("/get/:code", config.checkToken, (req, res, next) => {
+router.get("/get/:code/:filename", (req, res, next) => {
   var code = req.params.code;
-  //console.log(name);
+  var filename = req.params.filename;
+  //console.log(filename);
   Access.getByCode(code, (err, data) => {
-    console.log(data);
-    data.dateOfEntry = new Date(data.dateOfJoin).toLocaleDateString("en");
-    res.json(data);
+    //console.log(data);
+
+    //console.log(newImage);
+    //data.dateOfEntry = new Date(data.dateOfJoin).toLocaleDateString("en");
+    if (data !== null) {
+      let newImage = new Home({
+        roomnumber: data.roomnumber,
+        filename: filename
+      });
+      if (data.type === 'otcode') {
+        data.active = false;
+        Access.updateAccess(data._id, data, (err, access) => {
+          if (err) {
+            console.log(err);
+            res.json(false);
+          } else {
+            Home.addImage(newImage, (err, rom) => {
+              if (err) {
+                console.log(err);
+                res.json(false);
+              } else {
+                res.json(true);
+              }
+            });
+          }
+        });
+      }else if(data.type === 'scode'){
+        var startTime = data.startTime;
+        var endTime = data.endTime;
+        
+        var currentDate = new Date()   
+        
+        var startDate = new Date(currentDate.getTime());
+        startDate.setHours(startTime.split(":")[0]);
+        startDate.setMinutes(startTime.split(":")[1]);
+        
+        var endDate = new Date(currentDate.getTime());
+        endDate.setHours(endTime.split(":")[0]);
+        endDate.setMinutes(endTime.split(":")[1]);
+        
+        console.log("start "+startDate);
+        console.log("current "+currentDate);
+        console.log("end "+endDate);
+        var valid = startDate < currentDate && endDate > currentDate;
+        console.log("valid "+valid);
+        if(valid){
+          res.json(true);
+        }else{
+          res.json(false);
+        }
+      }
+      else {
+        Home.addImage(newImage, (err, rom) => {
+          if (err) {
+            //console.log(err);
+            res.json(false);
+          } else {
+            res.json(true);
+          }
+        });
+      }
+      //res.json(true);
+    }
+    else
+      res.json(false);
   });
 });
 
@@ -76,7 +140,7 @@ router.post("/create", config.checkToken, (req, res, next) => {
 });
 
 //Update
-router.put("/update/:id", config.checkToken, function(req, res, next) {
+router.put("/update/:id", config.checkToken, function (req, res, next) {
   //router.put("/update/:id", function(req, res, next) {
   //console.log( req.body);
   var id = req.params.id;
