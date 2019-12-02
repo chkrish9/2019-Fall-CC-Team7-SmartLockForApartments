@@ -35,8 +35,8 @@ mongoose.connection.on('error', (err) => {
 app.use(cors());
 
 //BodyParser is used to parse in coming request body.
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
+app.use(bodyParser.json({limit: '50mb', extended: true}));
 
 //Static folder
 app.use(express.static(path.join(__dirname, 'public')));

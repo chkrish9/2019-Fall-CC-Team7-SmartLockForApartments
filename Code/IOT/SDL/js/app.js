@@ -33,18 +33,18 @@ navigator.mediaDevices
   .getUserMedia(constraints)
   .then(handleSuccess)
   .catch(handleError);
-$(document).ready(function() {
+$(document).ready(function () {
   $(".message-success").hide();
   $(".message-fail").hide();
-  $(".message-success").click(function() {
+  $(".message-success").click(function () {
     $(".message-success").hide();
     $("#txtPassCode").val("");
   });
-  $(".message-fail").click(function() {
+  $(".message-fail").click(function () {
     $(".message-fail").hide();
     $("#txtPassCode").val("");
   });
-  $(".num").click(function() {
+  $(".num").click(function () {
     console.log(parseInt(this.innerText));
     if (this.innerText !== "")
       $("#txtPassCode").val($("#txtPassCode").val() + this.innerText);
@@ -56,7 +56,7 @@ $(document).ready(function() {
       );
     }
   });
-  $(".enter").click(function() {
+  $(".enter").click(function () {
     takepicture();
     $(".message-success").hide();
     $(".message-fail").hide();
@@ -69,7 +69,7 @@ $(document).ready(function() {
       $(".message-fail").show();
     }
   });
-  $(".delete").click(function() {
+  $(".delete").click(function () {
     $("#txtPassCode").val(
       $("#txtPassCode")
         .val()
@@ -79,10 +79,14 @@ $(document).ready(function() {
 });
 
 function takepicture() {
-  var canvas = document.getElementById("canvas");
+  const canvas = window.canvas = document.querySelector('canvas');
+  canvas.width = 480;
+  canvas.height = 360;
+ 
+  canvas.width = video.videoWidth;
+  canvas.height = video.videoHeight;
   var context = canvas.getContext("2d");
-
-  context.drawImage(video, 0, 0, 480, 360);
+  context.drawImage(video, 0, 0, 580, 460);
 
   var data = canvas.toDataURL("image/png");
   var postData = {
@@ -94,10 +98,10 @@ function takepicture() {
     type: "post",
     contentType: "application/x-www-form-urlencoded",
     data: postData,
-    success: function(data, textStatus, jQxhr) {
+    success: function (data, textStatus, jQxhr) {
       console.log(data);
     },
-    error: function(jqXhr, textStatus, errorThrown) {
+    error: function (jqXhr, textStatus, errorThrown) {
       console.log(errorThrown);
     }
   });

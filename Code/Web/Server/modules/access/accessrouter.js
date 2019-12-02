@@ -25,6 +25,7 @@ router.get("/get/:code", config.checkToken, (req, res, next) => {
   var code = req.params.code;
   //console.log(name);
   Access.getByCode(code, (err, data) => {
+    console.log(data);
     data.dateOfEntry = new Date(data.dateOfJoin).toLocaleDateString("en");
     res.json(data);
   });
