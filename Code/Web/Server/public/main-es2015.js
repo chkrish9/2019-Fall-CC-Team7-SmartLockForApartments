@@ -45,7 +45,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div>\r\n    <div class=\"row\">\r\n        <div class=\"col-sm-12\">\r\n            <h2 class=\"pull-left\">Access code</h2>\r\n        </div>\r\n    </div>\r\n    <div>\r\n        <div class=\"radio\">\r\n            <label>\r\n                <input type=\"radio\" value=\"code\" name=\"type\" [ngModel]=\"access.type\" (ngModelChange)=\"choose($event)\">\r\n                Access Code\r\n            </label>\r\n        </div>\r\n        <div class=\"radio\">\r\n            <label>\r\n                <input type=\"radio\" value=\"otcode\" name=\"type\" [ngModel]=\"access.type\" (ngModelChange)=\"choose($event)\">\r\n                One Time Access Code\r\n            </label>\r\n        </div>\r\n        <div class=\"radio\">\r\n            <label>\r\n                <input type=\"radio\" value=\"scode\" name=\"type\" [ngModel]=\"access.type\" (ngModelChange)=\"choose($event)\">\r\n                Schedule Access Code\r\n            </label>\r\n        </div>\r\n    </div>\r\n    <div class=\"row\" *ngIf=\"access.type === 'code'\">\r\n        <div class=\"col-sm-12\" *ngIf=\"access.code === '' && !showcode\">\r\n            <button class=\"btn btn-primary\" (click)=\"showInput()\">Create Code</button>\r\n        </div>\r\n        <div class=\"col-sm-4\" *ngIf=\"access.code !== '' || showcode\">\r\n            <div class=\"form-group\">\r\n                <label>Access code</label>\r\n                <input type=\"text\" class=\"form-control\" [(ngModel)]=\"access.code\" name=\"code\">\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div class=\"row\" *ngIf=\"access.type === 'otcode'\">\r\n        <div class=\"col-sm-12\">\r\n            <button class=\"btn btn-primary\" (click)=\"generateCode()\">Generate One Time Access Code</button>\r\n        </div>\r\n        <div class=\"col-sm-4\" *ngIf=\"access.otcode !== '' || showotcode\">\r\n            <div class=\"form-group\">\r\n                <label>Access code</label><br />\r\n                <label>{{access.otcode}}</label>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div class=\"row\" *ngIf=\"access.type === 'scode'\">\r\n        <div class=\"col-sm-4\">\r\n            <div class=\"form-group\">\r\n                <label>Date of Entry</label>\r\n                <input type=\"text\" placeholder=\"Datepicker\" class=\"form-control\"\r\n                    [bsConfig]=\"{ dateInputFormat: 'MM-DD-YYYY', containerClass: 'theme-red' }\" bsDatepicker\r\n                    [(ngModel)]=\"access.dateOfEntry\" [minDate]=\"minDate\" name=\"dateOfEntry\"\r\n                    (ngModelChange)=\"dateChanged($event)\">\r\n            </div>\r\n        </div>\r\n        <div class=\"col-sm-12\">\r\n            <div class=\"row\">\r\n                <div class=\"col-sm-2\">\r\n                    <div class=\"form-group\">\r\n                        <label>Start Time</label>\r\n                        <timepicker [(ngModel)]=\"access.startTime\"></timepicker>\r\n                    </div>\r\n                </div>\r\n                <div class=\"col-sm-2\">\r\n                    <div class=\"form-group\">\r\n                        <label>End Time</label>\r\n                        <timepicker [(ngModel)]=\"access.endTime\"></timepicker>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"col-sm-12\" *ngIf=\"access.scode === '' && !showscode\">\r\n            <button class=\"btn btn-primary\" (click)=\"generateCode()\">Create Schedule Code</button>\r\n        </div>\r\n        <div class=\"col-sm-12\">\r\n            <div class=\"row\">\r\n                <div class=\"col-sm-4\" *ngIf=\"access.scode !== '' || showscode\">\r\n                    <div class=\"form-group\">\r\n                        <label>Access code</label><br />\r\n                        <label>{{access.scode}}</label>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div class=\"row margin-top-5px\">\r\n        <div class=\"col-sm-2\" *ngIf=\"this.isNew\">\r\n            <button class=\"btn btn-primary form-control\" type=\"button\" (click)=\"save()\">Save</button>\r\n        </div>\r\n        <div class=\"col-sm-2\" *ngIf=\"!this.isNew\">\r\n            <button class=\"btn btn-primary form-control\" type=\"button\" (click)=\"update()\">Update</button>\r\n        </div>\r\n        <div class=\"col-sm-2\">\r\n            <button class=\"btn btn-primary form-control\" type=\"button\" (click)=\"cancel()\">Cancel</button>\r\n        </div>\r\n    </div>\r\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div>\r\n    <div class=\"row\">\r\n        <div class=\"col-sm-12\">\r\n            <h2 class=\"pull-left\">Access code</h2>\r\n        </div>\r\n    </div>\r\n    <div>\r\n        <div class=\"radio\">\r\n            <label>\r\n                <input type=\"radio\" value=\"code\" name=\"type\" [ngModel]=\"access.type\" (ngModelChange)=\"choose($event)\">\r\n                Access Code\r\n            </label>\r\n        </div>\r\n        <div class=\"radio\">\r\n            <label>\r\n                <input type=\"radio\" value=\"otcode\" name=\"type\" [ngModel]=\"access.type\" (ngModelChange)=\"choose($event)\">\r\n                One Time Access Code\r\n            </label>\r\n        </div>\r\n        <div class=\"radio\">\r\n            <label>\r\n                <input type=\"radio\" value=\"scode\" name=\"type\" [ngModel]=\"access.type\" (ngModelChange)=\"choose($event)\">\r\n                Schedule Access Code\r\n            </label>\r\n        </div>\r\n    </div>\r\n    <div class=\"row\" *ngIf=\"access.type === 'code'\">\r\n        <div class=\"col-sm-12\">\r\n            <button class=\"btn btn-primary\" (click)=\"generateCode()\">Generate Code</button>\r\n        </div>\r\n        <div class=\"col-sm-4\" *ngIf=\"access.code !== '' || showcode\">\r\n            <div class=\"form-group\">\r\n                <label>Access code</label><br />\r\n                <label>{{access.code}}</label>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div class=\"row\" *ngIf=\"access.type === 'otcode'\">\r\n        <div class=\"col-sm-12\">\r\n            <button class=\"btn btn-primary\" (click)=\"generateCode()\">Generate One Time Access Code</button>\r\n        </div>\r\n        <div class=\"col-sm-4\" *ngIf=\"access.code !== '' || showotcode\">\r\n            <div class=\"form-group\">\r\n                <label>Access code</label><br />\r\n                <label>{{access.code}}</label>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div class=\"row\" *ngIf=\"access.type === 'scode'\">\r\n        <div class=\"col-sm-4\">\r\n            <div class=\"form-group\">\r\n                <label>Date of Entry</label>\r\n                <input type=\"text\" placeholder=\"Datepicker\" class=\"form-control\"\r\n                    [bsConfig]=\"{ dateInputFormat: 'MM-DD-YYYY', containerClass: 'theme-red' }\" bsDatepicker\r\n                    [(ngModel)]=\"access.dateOfEntry\" [minDate]=\"minDate\" name=\"dateOfEntry\"\r\n                    (ngModelChange)=\"dateChanged($event)\">\r\n            </div>\r\n        </div>\r\n        <div class=\"col-sm-12\">\r\n            <div class=\"row\">\r\n                <div class=\"col-sm-2\">\r\n                    <div class=\"form-group\">\r\n                        <label>Start Time</label>\r\n                        <timepicker [(ngModel)]=\"access.startTime\"></timepicker>\r\n                    </div>\r\n                </div>\r\n                <div class=\"col-sm-2\">\r\n                    <div class=\"form-group\">\r\n                        <label>End Time</label>\r\n                        <timepicker [(ngModel)]=\"access.endTime\"></timepicker>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"col-sm-12\" *ngIf=\"access.code === '' && !showscode\">\r\n            <button class=\"btn btn-primary\" (click)=\"generateCode()\">Create Schedule Code</button>\r\n        </div>\r\n        <div class=\"col-sm-12\">\r\n            <div class=\"row\">\r\n                <div class=\"col-sm-4\" *ngIf=\"access.code !== '' || showscode\">\r\n                    <div class=\"form-group\">\r\n                        <label>Access code</label><br />\r\n                        <label>{{access.code}}</label>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div class=\"row margin-top-5px\">\r\n        <div class=\"col-sm-2\" *ngIf=\"this.isNew\">\r\n            <button class=\"btn btn-primary form-control\" type=\"button\" (click)=\"save()\">Save</button>\r\n        </div>\r\n        <div class=\"col-sm-2\" *ngIf=\"!this.isNew\">\r\n            <button class=\"btn btn-primary form-control\" type=\"button\" (click)=\"update()\">Update</button>\r\n        </div>\r\n        <div class=\"col-sm-2\">\r\n            <button class=\"btn btn-primary form-control\" type=\"button\" (click)=\"cancel()\">Cancel</button>\r\n        </div>\r\n    </div>\r\n</div>");
 
 /***/ }),
 
@@ -97,7 +97,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div *ngIf=\"authService.getUserType() === 'admin'\">\r\n  <div *ngIf=\"rooms.length <= 0\">\r\n    <div class=\"wrapper\">\r\n      <button class=\"btn btn-primary\" (click)=\"openModal(template)\">\r\n        Create Rooms\r\n      </button>\r\n    </div>\r\n  </div>\r\n  <div *ngIf=\"rooms.length > 0\">\r\n    <div class=\"row margin-top-20px\">\r\n      <div class=\"col-sm-6\">\r\n        <div class=\"input-group\">\r\n          <span class=\"input-group-addon\">Search Room</span>\r\n          <input type=\"text\" class=\"form-control\" id=\"search\" aria-describedby=\"basic-addon3\" />\r\n        </div>\r\n      </div>\r\n      <div class=\"col-sm-6\">\r\n        <button class=\"btn btn-primary\" (click)=\"openModal(template)\">\r\n          Create Rooms\r\n        </button>\r\n      </div>\r\n    </div>\r\n    <div class=\"row margin-top-5px\">\r\n      <div class=\"col-sm-3\" *ngFor=\"let room of rooms\">\r\n        <div class=\"border-style text-center\">\r\n          <div>\r\n            <img src=\"assets/images/door.jpg\" class=\"door\" (click)=\"goToApartment(room._id,room.user)\" />\r\n          </div>\r\n          <p [ngClass]=\"\r\n              room.isVacant == true ? 'label label-success' : 'label label-info'\r\n            \">\r\n            {{ room.roomnumber }}\r\n          </p>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <ng-template #template>\r\n    <div class=\"modal-body\">\r\n      <div class=\"modal-header\">\r\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\" (click)=\"closeModal()\">\r\n          <span aria-hidden=\"true\">&times;</span>\r\n        </button>\r\n        <h4 class=\"modal-title\" id=\"myModalLabel\">Create Rooms</h4>\r\n      </div>\r\n      <div class=\"modal-body\">\r\n        <div class=\"row\">\r\n          <div class=\"col-sm-12\">\r\n            <div class=\"form-group\">\r\n              <label>Enter Floor Number</label>\r\n              <input type=\"text\" class=\"form-control\" [(ngModel)]=\"floornumber\" name=\"floornumber\" />\r\n            </div>\r\n          </div>\r\n          <div class=\"col-sm-12\">\r\n            <div class=\"form-group\">\r\n              <label>Enter Number of Rooms</label>\r\n              <input type=\"text\" class=\"form-control\" [(ngModel)]=\"roomscount\" name=\"roomscount\" />\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <div class=\"modal-footer\">\r\n        <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" (click)=\"closeModal()\">\r\n          Close\r\n        </button>\r\n        <button type=\"button\" class=\"btn btn-primary\" (click)=\"createRooms()\">\r\n          Create\r\n        </button>\r\n      </div>\r\n    </div>\r\n  </ng-template>\r\n</div>\r\n<div *ngIf=\"authService.getUserType() !== 'admin'\">\r\n  <div class=\"margin-top-20px\">\r\n    <div class=\"row margin-top-5px\">\r\n      <div class=\"col-sm-3\">\r\n        <div class=\"\">\r\n          <div>\r\n            <img src=\"assets/images/1.PNG\" class=\"door\" />\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <div class=\"col-sm-3\">\r\n          <div class=\"\">\r\n            <div>\r\n              <img src=\"assets/images/2.PNG\" class=\"door\" />\r\n            </div>\r\n          </div>\r\n        </div>\r\n        <div class=\"col-sm-3\">\r\n          <div class=\"\">\r\n            <div>\r\n              <img src=\"assets/images/3.PNG\" class=\"door\" />\r\n            </div>\r\n          </div>\r\n        </div>\r\n        <div class=\"col-sm-3\">\r\n          <div class=\"\">\r\n            <div>\r\n              <img src=\"assets/images/4.PNG\" class=\"door\" />\r\n            </div>\r\n          </div>\r\n        </div>\r\n        <div class=\"col-sm-3\">\r\n          <div class=\"\">\r\n            <div>\r\n              <img src=\"assets/images/5.PNG\" class=\"door\" />\r\n            </div>\r\n          </div>\r\n        </div>\r\n    </div>\r\n  </div>\r\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div *ngIf=\"authService.getUserType() === 'admin'\">\r\n  <div *ngIf=\"rooms.length <= 0\">\r\n    <div class=\"wrapper\">\r\n      <button class=\"btn btn-primary\" (click)=\"openModal(template)\">\r\n        Create Rooms\r\n      </button>\r\n    </div>\r\n  </div>\r\n  <div *ngIf=\"rooms.length > 0\">\r\n    <div class=\"row margin-top-20px\">\r\n      <div class=\"col-sm-6\">\r\n        <div class=\"input-group\">\r\n          <span class=\"input-group-addon\">Search Room</span>\r\n          <input type=\"text\" class=\"form-control\" id=\"search\" aria-describedby=\"basic-addon3\" />\r\n        </div>\r\n      </div>\r\n      <div class=\"col-sm-6\">\r\n        <button class=\"btn btn-primary\" (click)=\"openModal(template)\">\r\n          Create Rooms\r\n        </button>\r\n      </div>\r\n    </div>\r\n    <div class=\"row margin-top-5px\">\r\n      <div class=\"col-sm-3\" *ngFor=\"let room of rooms\">\r\n        <div class=\"border-style text-center\">\r\n          <div>\r\n            <img src=\"assets/images/door.jpg\" class=\"door\" (click)=\"goToApartment(room._id,room.user)\" />\r\n          </div>\r\n          <p [ngClass]=\"\r\n              room.isVacant == true ? 'label label-success' : 'label label-info'\r\n            \">\r\n            {{ room.roomnumber }}\r\n          </p>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <ng-template #template>\r\n    <div class=\"modal-body\">\r\n      <div class=\"modal-header\">\r\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\" (click)=\"closeModal()\">\r\n          <span aria-hidden=\"true\">&times;</span>\r\n        </button>\r\n        <h4 class=\"modal-title\" id=\"myModalLabel\">Create Rooms</h4>\r\n      </div>\r\n      <div class=\"modal-body\">\r\n        <div class=\"row\">\r\n          <div class=\"col-sm-12\">\r\n            <div class=\"form-group\">\r\n              <label>Enter Floor Number</label>\r\n              <input type=\"text\" class=\"form-control\" [(ngModel)]=\"floornumber\" name=\"floornumber\" />\r\n            </div>\r\n          </div>\r\n          <div class=\"col-sm-12\">\r\n            <div class=\"form-group\">\r\n              <label>Enter Number of Rooms</label>\r\n              <input type=\"text\" class=\"form-control\" [(ngModel)]=\"roomscount\" name=\"roomscount\" />\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <div class=\"modal-footer\">\r\n        <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" (click)=\"closeModal()\">\r\n          Close\r\n        </button>\r\n        <button type=\"button\" class=\"btn btn-primary\" (click)=\"createRooms()\">\r\n          Create\r\n        </button>\r\n      </div>\r\n    </div>\r\n  </ng-template>\r\n</div>\r\n<div *ngIf=\"authService.getUserType() !== 'admin'\">\r\n  <div class=\"margin-top-20px\">\r\n    <div class=\"row margin-top-5px\">\r\n      <div *ngIf=\"images.length>0\">\r\n        <div class=\"col-sm-3\" *ngFor=\"let image of images\">\r\n          <div class=\"\">\r\n            <div>\r\n              <img [src]=\"this.authService.prepEndpoint('home/image/')+image.filename\" class=\"door\" />\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <div *ngIf=\"images.length === 0\">\r\n        <div class=\"wrapper\">\r\n          <p>No Data Available!!</p>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>");
 
 /***/ }),
 
@@ -530,6 +530,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var angular2_toaster__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! angular2-toaster */ "./node_modules/angular2-toaster/angular2-toaster.js");
 /* harmony import */ var ngx_bootstrap_timepicker__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ngx-bootstrap/timepicker */ "./node_modules/ngx-bootstrap/timepicker/fesm2015/ngx-bootstrap-timepicker.js");
+/* harmony import */ var _services_access_access_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../services/access/access.service */ "./src/app/services/access/access.service.ts");
+
 
 
 
@@ -545,13 +547,13 @@ function getTimepickerConfig() {
     });
 }
 let AccessComponent = class AccessComponent {
-    constructor(toasterService) {
+    constructor(toasterService, accessService) {
         this.toasterService = toasterService;
+        this.accessService = accessService;
         this.access = {
+            roomnumber: "",
             type: "",
             code: "",
-            otcode: "",
-            scode: "",
             dateOfEntry: "",
             startTime: "",
             endTime: "",
@@ -561,33 +563,58 @@ let AccessComponent = class AccessComponent {
         this.showotcode = false;
         this.showscode = false;
         this.isNew = true;
-        this.minDate = new Date();
+        this.minDate = new Date("12-2-2019");
+        this.access.roomnumber = localStorage.getItem("roomnumber");
+        //this.getAccessCode();
     }
-    ngOnInit() {
+    ngOnInit() { }
+    getAccessCode() {
+        this.accessService.getAllByRommno(this.access.roomnumber).subscribe((data) => {
+            this.accesses = data;
+        });
     }
     choose(value) {
-        this.access.type = value;
-        this.access = this.getCode();
-        if (this.access.type === "scode") {
-            this.access.dateOfEntry = "";
-            this.access.scode = "";
-        }
+        let type = value;
+        let roomnumber = localStorage.getItem("roomnumber");
+        this.access.code = "";
+        this.getAccessByTypeAndRoom(type, roomnumber);
+    }
+    getAccessByTypeAndRoom(type, roomnumber) {
+        this.accessService.getByTypeAndRoomno(type, roomnumber).subscribe((data) => {
+            if (data["length"] > 0) {
+                if (type === "code" || type === "otcode") {
+                    if (data["length"] > 0) {
+                        this.access = data[0];
+                        this.isNew = false;
+                    }
+                }
+                else {
+                    this.access = {
+                        roomnumber: "",
+                        type: "",
+                        code: "",
+                        dateOfEntry: "",
+                        startTime: "",
+                        endTime: "",
+                        active: false
+                    };
+                    this.access.type = "scode";
+                    this.accesses = data;
+                }
+            }
+            else {
+                this.isNew = true;
+                this.access.type = type;
+            }
+        });
     }
     showInput() {
         this.showcode = true;
     }
     generateCode() {
-        let code = Math.floor(100000 + Math.random() * 900000);
-        if (this.access.type === "otcode") {
-            let rancodes = ["345354", "250081", "294799", "498730", "435208"];
-            var rancode = rancodes[Math.floor(Math.random() * rancodes.length)];
-            this.access.otcode = rancode.toString();
-            this.showotcode = true;
-        }
-        if (this.access.type === "scode") {
-            this.access.scode = code.toString();
-            this.showscode = true;
-        }
+        this.accessService.generateCode().subscribe((data) => {
+            this.access.code = data.toString();
+        });
     }
     dateChanged($event) {
         this.access.dateOfEntry = $event;
@@ -599,102 +626,101 @@ let AccessComponent = class AccessComponent {
         this.access.dateOfEntry = $event;
     }
     save() {
-        let codes = [];
-        if (localStorage.getItem("codes") !== undefined && localStorage.getItem("codes") !== null)
-            codes = JSON.parse(localStorage.getItem("codes"));
-        codes.push(this.access);
-        localStorage.setItem("codes", JSON.stringify(codes));
-        var toast = {
-            type: 'success',
-            title: 'Success',
-            body: 'Code saved successfully.',
-            showCloseButton: true
-        };
-        this.toasterService.pop(toast);
+        this.access.active = true;
+        this.access.roomnumber = localStorage.getItem("roomnumber");
+        this.access.dateOfEntry = this.access.dateOfEntry !== "" ? this.formateDate(this.access.dateOfEntry) : "";
+        this.access.startTime = this.access.startTime !== "" ? this.getTime(this.access.startTime) : "";
+        this.access.endTime = this.access.endTime !== "" ? this.getTime(this.access.endTime) : "";
+        this.accessService.addAccess(this.access).subscribe((data) => {
+            //this.access = data;
+            if (this.access.type === 'scode') {
+                this.getAccessByTypeAndRoom(this.access.type, this.access.roomnumber);
+            }
+            var toast = {
+                type: "success",
+                title: "Success",
+                body: "Code saved successfully.",
+                showCloseButton: true
+            };
+            this.toasterService.pop(toast);
+        });
     }
     update() {
-        let codes = JSON.parse(localStorage.getItem("codes"));
-        for (let i = 0; i < codes.length; i++) {
-            if (this.access.type === codes[i].type) {
-                if (codes[i].type === 'scode' && this.access.dateOfEntry === codes[i].dateOfEntry) {
-                    codes[i] = this.access;
-                }
-                else {
-                    codes[i] = this.access;
-                }
+        this.access.active = true;
+        this.access.roomnumber = localStorage.getItem("roomnumber");
+        this.access.dateOfEntry = this.access.dateOfEntry !== "" ? this.formateDate(this.access.dateOfEntry) : "";
+        this.access.startTime = this.access.startTime !== "" ? this.getTime(this.access.startTime) : "";
+        this.access.endTime = this.access.endTime !== "" ? this.getTime(this.access.endTime) : "";
+        this.accessService.updateAccess(this.access).subscribe((data) => {
+            if (this.access.type === 'scode') {
+                this.getAccessByTypeAndRoom(this.access.type, this.access.roomnumber);
             }
-        }
-        localStorage.setItem("codes", JSON.stringify(codes));
-        var toast = {
-            type: 'success',
-            title: 'Success',
-            body: 'Code updated successfully.',
-            showCloseButton: true
-        };
-        this.toasterService.pop(toast);
+            var toast = {
+                type: "success",
+                title: "Success",
+                body: "Code updated successfully.",
+                showCloseButton: true
+            };
+            this.toasterService.pop(toast);
+        });
     }
-    cancel() {
-    }
+    cancel() { }
     getCode() {
-        let codes = JSON.parse(localStorage.getItem("codes"));
+        let codes = this.accesses;
         let code = {
+            roomnumber: "",
             type: "",
             code: "",
-            otcode: "",
-            scode: "",
             dateOfEntry: "",
             startTime: "",
             endTime: "",
             active: false
         };
         for (let i = 0; i < codes.length; i++) {
-            if (this.access.type === codes[i].type) {
-                if (codes[i].type === 'scode' && this.formateDate(new Date(this.access.dateOfEntry)) === this.formateDate(new Date(codes[i].dateOfEntry))) {
-                    code.scode = codes[i].scode;
-                    code.type = codes[i].type;
-                    code.dateOfEntry = this.access.dateOfEntry;
-                    code.startTime = codes[i].startTime;
-                    code.endTime = codes[i].endTime;
-                    this.access.startTime = new Date(codes[i].startTime);
-                    this.access.endTime = new Date(codes[i].endTime);
-                    this.isNew = false;
-                }
-                else if (codes[i].type !== 'scode') {
-                    code = codes[i];
-                    this.isNew = false;
-                }
-                else if (codes[i].type === 'scode') {
-                    code.type = 'scode';
-                    code.dateOfEntry = this.access.dateOfEntry;
-                    this.access.startTime = 0;
-                    this.access.endTime = 0;
-                    this.isNew = true;
-                    this.showscode = false;
-                }
-            }
-            else {
-                this.access.scode = "";
-                this.access.otcode = "";
-                this.access.code = "";
-                this.access.startTime = 0;
-                this.access.endTime = 0;
+            if (codes[i].type === "scode" &&
+                this.formateDate(new Date(this.access.dateOfEntry)) ===
+                    this.formateDate(new Date(codes[i].dateOfEntry))) {
+                code.code = codes[i].code;
+                code.type = codes[i].type;
+                code.dateOfEntry = this.access.dateOfEntry;
+                code["_id"] = codes[i]._id;
+                code.startTime = this.setDate(codes[i].startTime).toString();
+                code.endTime = this.setDate(codes[i].endTime).toString();
+                this.isNew = false;
             }
         }
-        code.type = this.access.type;
+        if (code.type === "") {
+            code.type = 'scode';
+            code.startTime = this.setDate("0:0").toString();
+            code.endTime = this.setDate("0:0").toString();
+            this.isNew = true;
+        }
         return code;
     }
     formateDate(dateObj) {
-        return dateObj.getFullYear() + '-' +
-            ('0' + (dateObj.getMonth() + 1)).slice(-2) + '-' +
-            ('0' + dateObj.getDate()).slice(-2);
+        return (dateObj.getFullYear() +
+            "/" +
+            ("0" + (dateObj.getMonth() + 1)).slice(-2) +
+            "/" +
+            ("0" + dateObj.getDate()).slice(-2));
+    }
+    setDate(time) {
+        var d = new Date();
+        d.setHours(time.split(':')[0]);
+        d.setMinutes(time.split(':')[1]);
+        return d;
+    }
+    getTime(dateObj) {
+        return (dateObj.getHours() + ":" + dateObj.getMinutes());
     }
 };
 AccessComponent.ctorParameters = () => [
-    { type: angular2_toaster__WEBPACK_IMPORTED_MODULE_2__["ToasterService"] }
+    { type: angular2_toaster__WEBPACK_IMPORTED_MODULE_2__["ToasterService"] },
+    { type: _services_access_access_service__WEBPACK_IMPORTED_MODULE_4__["AccessService"] }
 ];
 AccessComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        selector: 'app-access',
+        selector: "app-access",
         template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./access.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/components/access/access.component.html")).default,
         providers: [{ provide: ngx_bootstrap_timepicker__WEBPACK_IMPORTED_MODULE_3__["TimepickerConfig"], useFactory: getTimepickerConfig }],
         styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./access.component.css */ "./src/app/components/access/access.component.css")).default]
@@ -1094,7 +1120,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
 /* harmony import */ var src_app_services_common_auth_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/services/common/auth.service */ "./src/app/services/common/auth.service.ts");
 /* harmony import */ var _services_room_room_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../services/room/room.service */ "./src/app/services/room/room.service.ts");
-/* harmony import */ var angular2_toaster__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! angular2-toaster */ "./node_modules/angular2-toaster/angular2-toaster.js");
+/* harmony import */ var _services_home_home_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../services/home/home.service */ "./src/app/services/home/home.service.ts");
+/* harmony import */ var angular2_toaster__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! angular2-toaster */ "./node_modules/angular2-toaster/angular2-toaster.js");
+
 
 
 
@@ -1103,14 +1131,21 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let HomeComponent = class HomeComponent {
-    constructor(modalService, router, authService, roomService, toasterService) {
+    constructor(modalService, router, authService, roomService, homeService, toasterService) {
         this.modalService = modalService;
         this.router = router;
         this.authService = authService;
         this.roomService = roomService;
+        this.homeService = homeService;
         this.toasterService = toasterService;
         this.rooms = [];
-        this.getAllRooms();
+        this.images = [];
+        if (authService.getUserType() !== 'admin') {
+            let roomnumber = localStorage.getItem("roomnumber");
+            this.getAllByRommno(roomnumber);
+        }
+        else
+            this.getAllRooms();
     }
     getAllRooms() {
         this.roomService.getRooms().subscribe(data => {
@@ -1167,13 +1202,19 @@ let HomeComponent = class HomeComponent {
     closeModal() {
         this.modalRef.hide();
     }
+    getAllByRommno(roomno) {
+        this.homeService.getAllByRommno(roomno).subscribe(data => {
+            this.images = data;
+        });
+    }
 };
 HomeComponent.ctorParameters = () => [
     { type: ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_2__["BsModalService"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] },
     { type: src_app_services_common_auth_service__WEBPACK_IMPORTED_MODULE_4__["AuthService"] },
     { type: _services_room_room_service__WEBPACK_IMPORTED_MODULE_5__["RoomService"] },
-    { type: angular2_toaster__WEBPACK_IMPORTED_MODULE_6__["ToasterService"] }
+    { type: _services_home_home_service__WEBPACK_IMPORTED_MODULE_6__["HomeService"] },
+    { type: angular2_toaster__WEBPACK_IMPORTED_MODULE_7__["ToasterService"] }
 ];
 HomeComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -1247,8 +1288,10 @@ let LoginComponent = class LoginComponent {
                 if (data["success"]) {
                     this.authService.storeUserData(data["token"], data["user"]);
                     console.log("Logged In");
-                    if (data["user"].type !== 'admin')
+                    if (data["user"].type !== 'admin') {
                         localStorage.setItem("userId", data["user"].id);
+                        localStorage.setItem("roomnumber", data["user"].roomnumber);
+                    }
                     this.router.navigate(["home"]);
                 }
                 else {
@@ -1372,6 +1415,109 @@ AuthGuard = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 /***/ }),
 
+/***/ "./src/app/services/access/access.service.ts":
+/*!***************************************************!*\
+  !*** ./src/app/services/access/access.service.ts ***!
+  \***************************************************/
+/*! exports provided: AccessService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AccessService", function() { return AccessService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+/* harmony import */ var _common_auth_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../common/auth.service */ "./src/app/services/common/auth.service.ts");
+
+
+
+
+let AccessService = class AccessService {
+    constructor(http, authService) {
+        this.http = http;
+        this.authService = authService;
+    }
+    addAccess(access) {
+        let headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+            "Content-Type": "application/json",
+            Authorization: this.authService.getToken()
+        });
+        let url = this.authService.prepEndpoint("access/create");
+        return this.http.post(url, access, { headers: headers });
+    }
+    updateAccess(access) {
+        let headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+            "Content-Type": "application/json",
+            Authorization: this.authService.getToken()
+        });
+        let url = this.authService.prepEndpoint("access/update/");
+        url = url + access._id;
+        return this.http.put(url, access, { headers: headers });
+    }
+    deleteAccess(id) {
+        let headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+            "Content-Type": "application/json",
+            Authorization: this.authService.getToken()
+        });
+        let url = this.authService.prepEndpoint("access/delete/");
+        return this.http.delete(url + id, { headers: headers });
+    }
+    getAccess() {
+        let headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+            "Content-Type": "application/json",
+            Authorization: this.authService.getToken()
+        });
+        let url = this.authService.prepEndpoint("access/all/");
+        return this.http.get(url, { headers: headers });
+    }
+    generateCode() {
+        let headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+            "Content-Type": "application/json",
+            Authorization: this.authService.getToken()
+        });
+        let url = this.authService.prepEndpoint("access/generatecode/");
+        return this.http.get(url, { headers: headers });
+    }
+    getAllByRommno(roomno) {
+        let headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+            "Content-Type": "application/json",
+            Authorization: this.authService.getToken()
+        });
+        let url = this.authService.prepEndpoint("access/allbyrommno/");
+        return this.http.get(url + roomno, { headers: headers });
+    }
+    getAccessByCode(code) {
+        let headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+            "Content-Type": "application/json",
+            Authorization: this.authService.getToken()
+        });
+        let url = this.authService.prepEndpoint("access/get/");
+        return this.http.get(url + code, { headers: headers });
+    }
+    getByTypeAndRoomno(type, roomno) {
+        let headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+            "Content-Type": "application/json",
+            Authorization: this.authService.getToken()
+        });
+        let url = this.authService.prepEndpoint("access/gettyperoomno/");
+        return this.http.get(url + type + "/" + roomno, { headers: headers });
+    }
+};
+AccessService.ctorParameters = () => [
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] },
+    { type: _common_auth_service__WEBPACK_IMPORTED_MODULE_3__["AuthService"] }
+];
+AccessService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: "root"
+    })
+], AccessService);
+
+
+
+/***/ }),
+
 /***/ "./src/app/services/common/auth.service.ts":
 /*!*************************************************!*\
   !*** ./src/app/services/common/auth.service.ts ***!
@@ -1394,7 +1540,7 @@ let AuthService = class AuthService {
     constructor(http, jwtHelper) {
         this.http = http;
         this.jwtHelper = jwtHelper;
-        this.isDev = false;
+        this.isDev = true;
     }
     authenticateUser(user) {
         let headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]().set("Content-Type", "application/json");
@@ -1455,8 +1601,8 @@ let AuthService = class AuthService {
             return ep;
         }
         else {
-            //return "http://localhost:3000/" + ep;
-            return "http://168.61.149.224/" + ep;
+            return "http://localhost:3000/" + ep;
+            //return "http://168.61.149.224/" + ep;
         }
     }
 };
@@ -1469,6 +1615,52 @@ AuthService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         providedIn: "root"
     })
 ], AuthService);
+
+
+
+/***/ }),
+
+/***/ "./src/app/services/home/home.service.ts":
+/*!***********************************************!*\
+  !*** ./src/app/services/home/home.service.ts ***!
+  \***********************************************/
+/*! exports provided: HomeService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomeService", function() { return HomeService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _common_auth_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../common/auth.service */ "./src/app/services/common/auth.service.ts");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+
+
+
+
+let HomeService = class HomeService {
+    constructor(http, authService) {
+        this.http = http;
+        this.authService = authService;
+    }
+    getAllByRommno(roomno) {
+        let headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpHeaders"]({
+            "Content-Type": "application/json",
+            Authorization: this.authService.getToken()
+        });
+        let url = this.authService.prepEndpoint("home/all/");
+        return this.http.get(url + roomno, { headers: headers });
+    }
+};
+HomeService.ctorParameters = () => [
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"] },
+    { type: _common_auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"] }
+];
+HomeService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    })
+], HomeService);
 
 
 

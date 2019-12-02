@@ -2,6 +2,7 @@ import { Component } from "@angular/core";
 import { AuthService } from "../../services/common/auth.service";
 import { AlertController, ToastController } from "@ionic/angular";
 import { RoomService } from "src/services/room/room.service";
+import { HttpHeaders, HttpClient } from "@angular/common/http";
 
 @Component({
   selector: "app-home",
@@ -10,12 +11,19 @@ import { RoomService } from "src/services/room/room.service";
 })
 export class HomePage {
   rooms: any = [];
+  images: any = [];
   constructor(
     public authService: AuthService,
     private roomService: RoomService,
     public toastCtrl: ToastController,
-    public alertController: AlertController
+    public alertController: AlertController,
+    private http: HttpClient
   ) {
+    if(authService.getUserType() !== 'admin'){
+      let roomnumber = localStorage.getItem("roomnumber");
+      this.getAllByRommno(roomnumber);
+    }
+    else
     this.getAllRooms();
   }
 
@@ -94,5 +102,16 @@ export class HomePage {
       duration: 3000
     });
     toast.present();
+  }
+  getAllByRommno(roomno) {
+    roomno = "1-1";
+    let headers = new HttpHeaders({
+      "Content-Type": "application/json",
+      Authorization: this.authService.getToken()
+    });
+    let url = this.authService.prepEndpoint("home/all/");
+    this.http.get(url + roomno, { headers: headers }).subscribe(data => {
+      this.images = data;
+    });
   }
 }
