@@ -37,8 +37,10 @@ export class LoginComponent implements OnInit {
         if (data["success"]) {
           this.authService.storeUserData(data["token"], data["user"]);
           console.log("Logged In");
-          if (data["user"].type !== 'admin')
+          if (data["user"].type !== 'admin'){
             localStorage.setItem("userId", data["user"].id);
+            localStorage.setItem("roomnumber",data["user"].roomnumber);
+          }
           this.router.navigate(["home"]);
         } else {
           var toast: Toast = {

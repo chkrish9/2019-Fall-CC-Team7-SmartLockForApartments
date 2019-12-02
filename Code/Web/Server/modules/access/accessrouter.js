@@ -90,6 +90,7 @@ router.put("/update/:id", config.checkToken, function(req, res, next) {
   };
   Access.updateAccess(id, update, (err, access) => {
     if (err) {
+      //console.log(err);
       res.json({ msg: "Failed while updating Access", status: "error" });
     } else {
       res.json({ msg: "Access updated successfully" });

@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const User = require("../../models/user/user");
+const Room = require("../../models/room/room");
 const jwt = require("jsonwebtoken");
 const config = require("../../config/database");
 const email = require("../../config/email");
@@ -21,15 +22,20 @@ router.post("/authenticate", (req, res, next) => {
                 const token = jwt.sign(user.toJSON(), config.secret, {
                     expiresIn: 86400 //1day
                 });
-                res.json({
-                    success: true,
-                    token: "JWT " + token,
-                    user: {
-                        id: user._id,
-                        username: user.username,
-                        type: user.type
-                    }
+                Room.getRoomByUserId(user._id,(err, data)=>{
+                    console.log(data);
+                    res.json({
+                        success: true,
+                        token: "JWT " + token,
+                        user: {
+                            id: user._id,
+                            username: user.username,
+                            type: user.type,
+                            roomnumber:data.roomnumber
+                        }
+                    });
                 });
+                
             } else {
                 return res.json({ success: false, msg: "Invalid Username/Password." });
             }

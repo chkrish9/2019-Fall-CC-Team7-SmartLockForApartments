@@ -40,7 +40,7 @@ module.exports.getAllByRoom = function(roomno, callback) {
 
 module.exports.getByTypeAndRoom = function(type, roomno, callback) {
   const query = { type: type, roomnumber: roomno, active: true };
-  console.log(query);
+  //console.log(query);
   Access.find(query, callback);
 };
 
@@ -58,16 +58,17 @@ module.exports.generateCode = function(callback) {
 
 module.exports.getByCode = function(code, callback) {
   const query = { code: code };
-  console.log(query);
+  //console.log(query);
   Access.findOne(query, callback);
 };
 
 module.exports.addAccess = function(newAccess, callback) {
-  console.log(newAccess);
+  //console.log(newAccess);
   newAccess.save(callback);
 };
 
 module.exports.updateAccess = function(id, updateQuery, callback) {
+  //console.log(updateQuery);
   Access.findByIdAndUpdate(id, { $set: updateQuery }, callback);
 };
 

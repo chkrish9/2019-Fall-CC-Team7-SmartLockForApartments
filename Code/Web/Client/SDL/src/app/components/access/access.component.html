@@ -25,13 +25,13 @@
         </div>
     </div>
     <div class="row" *ngIf="access.type === 'code'">
-        <div class="col-sm-12" *ngIf="access.code === '' && !showcode">
-            <button class="btn btn-primary" (click)="showInput()">Create Code</button>
+        <div class="col-sm-12">
+            <button class="btn btn-primary" (click)="generateCode()">Generate Code</button>
         </div>
         <div class="col-sm-4" *ngIf="access.code !== '' || showcode">
             <div class="form-group">
-                <label>Access code</label>
-                <input type="text" class="form-control" [(ngModel)]="access.code" name="code">
+                <label>Access code</label><br />
+                <label>{{access.code}}</label>
             </div>
         </div>
     </div>
@@ -39,10 +39,10 @@
         <div class="col-sm-12">
             <button class="btn btn-primary" (click)="generateCode()">Generate One Time Access Code</button>
         </div>
-        <div class="col-sm-4" *ngIf="access.otcode !== '' || showotcode">
+        <div class="col-sm-4" *ngIf="access.code !== '' || showotcode">
             <div class="form-group">
                 <label>Access code</label><br />
-                <label>{{access.otcode}}</label>
+                <label>{{access.code}}</label>
             </div>
         </div>
     </div>
@@ -72,15 +72,15 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-12" *ngIf="access.scode === '' && !showscode">
+        <div class="col-sm-12" *ngIf="access.code === '' && !showscode">
             <button class="btn btn-primary" (click)="generateCode()">Create Schedule Code</button>
         </div>
         <div class="col-sm-12">
             <div class="row">
-                <div class="col-sm-4" *ngIf="access.scode !== '' || showscode">
+                <div class="col-sm-4" *ngIf="access.code !== '' || showscode">
                     <div class="form-group">
                         <label>Access code</label><br />
-                        <label>{{access.scode}}</label>
+                        <label>{{access.code}}</label>
                     </div>
                 </div>
             </div>

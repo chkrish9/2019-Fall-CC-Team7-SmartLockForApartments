@@ -77,6 +77,6 @@ export class AccessService {
       Authorization: this.authService.getToken()
     });
     let url = this.authService.prepEndpoint("access/gettyperoomno/");
-    return this.http.get(url + type + roomno, { headers: headers });
+    return this.http.get(url + type+"/"+ roomno, { headers: headers });
   }
 }
