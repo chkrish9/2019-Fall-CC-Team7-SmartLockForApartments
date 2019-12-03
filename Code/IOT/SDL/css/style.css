@@ -33,3 +33,30 @@
 .video-style{
   width: 100%;
 }
+.message-success{
+  position: absolute;
+    top: 40%;
+    left: 45%;
+    margin-top: -57px;
+    margin-left: -50px;
+    width: 300px;
+    height: 300px;
+    font-size: 100px;
+    background: #2af52a;
+    text-align: center;
+    padding: 4%;
+}
+
+.message-fail{
+  position: absolute;
+    top: 40%;
+    left: 45%;
+    margin-top: -57px;
+    margin-left: -50px;
+    width: 300px;
+    height: 300px;
+    font-size: 100px;
+    background: #e80d0d;
+    text-align: center;
+    padding: 4%;
+}

@@ -39,7 +39,11 @@ $(document).ready(function() {
     }
   });
   $(".enter").click(function() {
-    console.log(parseInt(this.innerText));
+    let passcode = $("#txtPassCode").val();
+    let codes = ["345354","250081","294799","498730","435208"]
+    if(codes.indexOf(passcode) > -1){
+      console.log("hi");
+    }
   });
   $(".delete").click(function() {
     $("#txtPassCode").val(
