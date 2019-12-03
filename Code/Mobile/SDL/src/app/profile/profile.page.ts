@@ -7,13 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfilePage implements OnInit {
   user = {
-    "firstName": "",
-    "lastName": "",
-    "email": "",
-    "phone": "",
-    "username": "",
-    "password": "",
-    "dateOfJoin": "",
+    "firstName": "Murali",
+    "lastName": "C",
+    "email": "mcmc5@mail.umkc.edu",
+    "phone": "123456789",
+    "username": "mcmc5",
+    "password": "1234",
+    "dateOfJoin": "10-07-2019",
     "cnfpassword": ""
   };
   constructor() { }
