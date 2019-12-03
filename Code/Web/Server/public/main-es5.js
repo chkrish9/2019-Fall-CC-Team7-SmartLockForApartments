@@ -609,6 +609,7 @@
                         this.access.startTime = 0;
                     if (this.access.endTime === "")
                         this.access.endTime = 0;
+                    this.access.dateOfEntry = $event;
                 };
                 AccessComponent.prototype.save = function () {
                     var codes = [];
@@ -681,12 +682,7 @@
                                 this.access.startTime = 0;
                                 this.access.endTime = 0;
                                 this.isNew = true;
-                            }
-                            else if (codes[i].type === 'otcode') {
-                                code.type = 'otcode';
-                            }
-                            else if (codes[i].type === 'code') {
-                                code.type = 'code';
+                                this.showscode = false;
                             }
                         }
                         else {
