@@ -9,6 +9,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { JwtModule, JwtHelperService } from "@auth0/angular-jwt";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { BsDatepickerModule } from "ngx-bootstrap/datepicker";
+import { TimepickerModule } from 'ngx-bootstrap/timepicker';
 
 import { AppComponent } from "./app.component";
 import { LoginComponent } from "./components/login/login.component";
@@ -56,6 +57,7 @@ export function getToken() {
     ModalModule.forRoot(),
     ToasterModule.forRoot(),
     BsDatepickerModule.forRoot(),
+    TimepickerModule.forRoot(),
     RouterModule.forRoot(appRoutes)
   ],
   providers: [AuthService, AuthGuard, JwtHelperService],
