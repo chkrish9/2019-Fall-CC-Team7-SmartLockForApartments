@@ -1,0 +1,116 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Access code
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div style="padding: 0 10px;">
+    <div class="row">
+        <div class="col-sm-12">
+            <h2 class="pull-left">Access code</h2>
+        </div>
+    </div>
+    <div>
+        <div class="radio">
+            <label>
+                <input type="radio" value="code" name="type" [ngModel]="access.type" (ngModelChange)="choose($event)">
+                Access Code
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" value="otcode" name="type" [ngModel]="access.type" (ngModelChange)="choose($event)">
+                One Time Access Code
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" value="scode" name="type" [ngModel]="access.type" (ngModelChange)="choose($event)">
+                Schedule Access Code
+            </label>
+        </div>
+    </div>
+    <div class="row" *ngIf="access.type === 'code'">
+        <div class="col-sm-12" *ngIf="access.code === '' && !showcode">
+            <button class="btn btn-primary" (click)="showInput()">Create Code</button>
+        </div>
+        <div class="col-sm-4" *ngIf="access.code !== '' || showcode">
+            <div class="form-group">
+                <label>Access code</label>
+                <input type="text" class="form-control" [(ngModel)]="access.code" name="code">
+            </div>
+        </div>
+    </div>
+    <div class="row" *ngIf="access.type === 'otcode'">
+        <div class="col-sm-12">
+            <button class="btn btn-primary" (click)="generateCode()">Generate One Time Access Code</button>
+        </div>
+        <div class="col-sm-4" *ngIf="access.otcode !== '' || showotcode">
+            <div class="form-group">
+                <label>Access code</label><br />
+                <label>{{access.otcode}}</label>
+            </div>
+        </div>
+    </div>
+    <div class="row" *ngIf="access.type === 'scode'">
+        <div class="col-sm-4">
+            <div class="form-group">
+                <label>Date of Entry</label>
+                <!-- <input type="text" placeholder="Datepicker" class="form-control"
+                    [bsConfig]="{ dateInputFormat: 'MM-DD-YYYY', containerClass: 'theme-red' }" bsDatepicker
+                    [(ngModel)]="access.dateOfEntry" [minDate]="minDate" name="dateOfEntry"
+                    (ngModelChange)="dateChanged($event)"> -->
+                    <input type="text" class="form-control"  [(ngModel)]="access.dateOfEntry"  name="dateOfEntry">
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <div class="row">
+                <div class="col-sm-2">
+                    <div class="form-group">
+                        <label>Start Time</label>
+                        <!-- <timepicker [(ngModel)]="access.startTime"></timepicker> -->
+                        <input type="text" class="form-control"  [(ngModel)]="access.startTime"  name="startTime">
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="form-group">
+                        <label>End Time</label>
+                        <!-- <timepicker [(ngModel)]="access.endTime"></timepicker> -->
+                        <input type="text" class="form-control"  [(ngModel)]="access.endTime"  name="endTime">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12" *ngIf="access.scode === '' && !showscode">
+            <button class="btn btn-primary" (click)="generateCode()">Create Schedule Code</button>
+        </div>
+        <div class="col-sm-12">
+            <div class="row">
+                <div class="col-sm-4" *ngIf="access.scode !== '' || showscode">
+                    <div class="form-group">
+                        <label>Access code</label><br />
+                        <label>{{access.scode}}</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row margin-top-5px">
+        <div class="col-sm-2" *ngIf="this.isNew">
+            <button class="btn btn-primary form-control" type="button" (click)="save()">Save</button>
+        </div>
+        <div class="col-sm-2" *ngIf="!this.isNew">
+            <button class="btn btn-primary form-control" type="button" (click)="update()">Update</button>
+        </div>
+        <div class="col-sm-2">
+            <button class="btn btn-primary form-control" type="button" (click)="cancel()">Cancel</button>
+        </div>
+    </div>
+</div>
+</ion-content>

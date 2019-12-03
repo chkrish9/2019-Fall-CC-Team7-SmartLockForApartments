@@ -12,7 +12,9 @@ const routes: Routes = [
     loadChildren: () => import('./home/home.module').then(m => m.HomePageModule)
   },
   { path: 'login', loadChildren: './login/login.module#LoginPageModule' },
-  { path: 'logout', loadChildren: './logout/logout.module#LogoutPageModule' }
+  { path: 'logout', loadChildren: './logout/logout.module#LogoutPageModule' },  { path: 'profile', loadChildren: './profile/profile.module#ProfilePageModule' },
+  { path: 'accesscode', loadChildren: './accesscode/accesscode.module#AccesscodePageModule' }
+
 ];
 
 @NgModule({

@@ -17,6 +17,14 @@ export class AppComponent {
       icon: 'home'
     },
     {
+      title: 'Profile',
+      url: '/profile'
+    },
+    {
+      title: 'AccessCode',
+      url: '/accesscode'
+    },
+    {
       title: 'Logout',
       url: '/logout'
     }

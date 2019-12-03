@@ -7,6 +7,9 @@ import { HttpClientModule } from "@angular/common/http";
 import { IonicModule, IonicRouteStrategy } from "@ionic/angular";
 import { SplashScreen } from "@ionic-native/splash-screen/ngx";
 import { StatusBar } from "@ionic-native/status-bar/ngx";
+// import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+// import { BsDatepickerModule } from "ngx-bootstrap/datepicker";
+// import { TimepickerModule } from 'ngx-bootstrap/timepicker';
 
 import { AppComponent } from "./app.component";
 import { AppRoutingModule } from "./app-routing.module";
@@ -21,12 +24,15 @@ export function getToken() {
   imports: [
     BrowserModule,
     HttpClientModule,
+    //BrowserAnimationsModule,
     JwtModule.forRoot({
       config: {
         tokenGetter: getToken
       }
     }),
     IonicModule.forRoot(),
+    // BsDatepickerModule.forRoot(),
+    // TimepickerModule.forRoot(),
     AppRoutingModule
   ],
   providers: [

@@ -11,7 +11,7 @@ export class AuthService {
   user: any;
   privillages: any;
   constructor(private http: HttpClient, public jwtHelper: JwtHelperService) {
-    this.isDev = true;
+    this.isDev = false;
   }
 
   authenticateUser(user) {
@@ -83,7 +83,8 @@ export class AuthService {
     if (!this.isDev) {
       return ep;
     } else {
-      return "http://localhost:3000/" + ep;
+      //return "http://localhost:3000/" + ep;
+      return "http://168.61.149.224/" + ep;
     }
   }
 }
