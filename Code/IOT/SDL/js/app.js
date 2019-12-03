@@ -26,6 +26,16 @@ navigator.mediaDevices
   .then(handleSuccess)
   .catch(handleError);
 $(document).ready(function() {
+  $(".message-success").hide();
+  $(".message-fail").hide();
+  $(".message-success").click(function(){
+    $(".message-success").hide();
+    $("#txtPassCode").val("");
+  });
+  $(".message-fail").click(function(){
+    $(".message-fail").hide();
+    $("#txtPassCode").val("");
+  });
   $(".num").click(function() {
     console.log(parseInt(this.innerText));
     if (this.innerText !== "")
@@ -39,10 +49,14 @@ $(document).ready(function() {
     }
   });
   $(".enter").click(function() {
+    $(".message-success").hide();
+    $(".message-fail").hide();
     let passcode = $("#txtPassCode").val();
     let codes = ["345354","250081","294799","498730","435208"]
     if(codes.indexOf(passcode) > -1){
-      console.log("hi");
+      $(".message-success").show();
+    }else{
+      $(".message-fail").show();
     }
   });
   $(".delete").click(function() {
