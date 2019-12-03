@@ -682,6 +682,12 @@
                                 this.access.endTime = 0;
                                 this.isNew = true;
                             }
+                            else if (codes[i].type === 'otcode') {
+                                code.type = 'otcode';
+                            }
+                            else if (codes[i].type === 'code') {
+                                code.type = 'code';
+                            }
                         }
                         else {
                             this.access.scode = "";
