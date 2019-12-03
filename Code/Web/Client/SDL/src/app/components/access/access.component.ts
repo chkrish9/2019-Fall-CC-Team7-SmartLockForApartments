@@ -160,6 +160,7 @@ export class AccessComponent implements OnInit {
         this.access.endTime = 0;
       }
     }
+    code.type = this.access.type;
     return code;
   }
 

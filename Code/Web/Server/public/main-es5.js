@@ -697,6 +697,7 @@
                             this.access.endTime = 0;
                         }
                     }
+                    code.type = this.access.type;
                     return code;
                 };
                 AccessComponent.prototype.formateDate = function (dateObj) {

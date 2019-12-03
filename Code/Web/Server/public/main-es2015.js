@@ -682,6 +682,7 @@ let AccessComponent = class AccessComponent {
                 this.access.endTime = 0;
             }
         }
+        code.type = this.access.type;
         return code;
     }
     formateDate(dateObj) {
