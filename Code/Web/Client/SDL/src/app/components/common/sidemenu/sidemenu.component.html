@@ -4,6 +4,8 @@
             class="list-group-item" [routerLink]="['/home']">Home</li>
         <li *ngIf="authService.loggedIn() && (authService.getUserType() !== 'admin')" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact : true }"
             class="list-group-item" [routerLink]="['/apartment']">Profile</li>
+            <li *ngIf="authService.loggedIn() && (authService.getUserType() !== 'admin')" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact : true }"
+            class="list-group-item" [routerLink]="['/access']">Access</li>
         <li *ngIf="authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact : true }"
             class="list-group-item" (click)="onLogoutClick()">Logout</li>
     </ul>

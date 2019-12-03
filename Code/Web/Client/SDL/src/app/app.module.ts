@@ -19,11 +19,13 @@ import { AuthGuard } from "./guards/auth.guard";
 import { HeaderComponent } from "./components/common/header/header.component";
 import { SidemenuComponent } from "./components/common/sidemenu/sidemenu.component";
 import { ApartmentComponent } from "./components/apartment/apartment.component";
+import { AccessComponent } from './components/access/access.component';
 
 const appRoutes: Routes = [
   { path: "", component: LoginComponent, canActivate: [AuthGuard] },
   { path: "home", component: HomeComponent, canActivate: [AuthGuard] },
-  { path: "apartment", component: ApartmentComponent, canActivate: [AuthGuard] }
+  { path: "apartment", component: ApartmentComponent, canActivate: [AuthGuard] },
+  { path: "access", component: AccessComponent, canActivate: [AuthGuard] }
 ];
 
 export function getToken() {
@@ -37,7 +39,8 @@ export function getToken() {
     HomeComponent,
     HeaderComponent,
     SidemenuComponent,
-    ApartmentComponent
+    ApartmentComponent,
+    AccessComponent
   ],
   imports: [
     BrowserModule,

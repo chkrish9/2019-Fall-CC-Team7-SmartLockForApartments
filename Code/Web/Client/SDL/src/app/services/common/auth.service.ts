@@ -11,7 +11,7 @@ export class AuthService {
   user: any;
   privillages: any;
   constructor(private http: HttpClient, public jwtHelper: JwtHelperService) {
-    this.isDev = false;
+    this.isDev = true;
   }
 
   authenticateUser(user) {
