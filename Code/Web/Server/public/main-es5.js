@@ -594,7 +594,9 @@
                 AccessComponent.prototype.generateCode = function () {
                     var code = Math.floor(100000 + Math.random() * 900000);
                     if (this.access.type === "otcode") {
-                        this.access.otcode = code.toString();
+                        var rancodes = ["345354", "250081", "294799", "498730", "435208"];
+                        var rancode = rancodes[Math.floor(Math.random() * rancodes.length)];
+                        this.access.otcode = rancode.toString();
                         this.showotcode = true;
                     }
                     if (this.access.type === "scode") {
