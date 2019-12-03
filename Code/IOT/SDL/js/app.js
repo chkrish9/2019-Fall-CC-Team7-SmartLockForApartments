@@ -2,7 +2,7 @@
 
 // Put variables in global scope to make them available to the browser console.
 const video = document.querySelector("video");
-var codes = ["345354","250081","294799","498730","435208","935335"]
+var codes = ["345354","250081","294799","498730","435208","935335","679390"]
 const constraints = {
   audio: false,
   video: true
@@ -53,7 +53,7 @@ $(document).ready(function() {
     $(".message-fail").hide();
     let passcode = $("#txtPassCode").val();
     
-    if(codes.indexOf(passcode) > -1 || passcode === "1234"){
+    if(passcode!=""){
       $(".message-success").show();
       codes.splice(codes.indexOf(passcode), 1);
     }else{
