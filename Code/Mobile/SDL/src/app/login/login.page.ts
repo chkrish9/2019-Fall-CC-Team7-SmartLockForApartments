@@ -29,6 +29,8 @@ export class LoginPage implements OnInit {
       this.authService.authenticateUser(user).subscribe(data => {
         console.log(JSON.stringify(data));
         if (data["success"]) {
+          this.username = "";
+          this.password = "";
           this.authService.storeUserData(data["token"], data["user"]);
           console.log("Logged In");
           if (data["user"].type !== "admin")

@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { JwtHelperService } from "@auth0/angular-jwt";
-import { ToastController } from '@ionic/angular';
+import { ToastController } from "@ionic/angular";
 @Injectable({
   providedIn: "root"
 })
@@ -10,7 +10,11 @@ export class AuthService {
   isDev: boolean;
   user: any;
   privillages: any;
-  constructor(private http: HttpClient, public jwtHelper: JwtHelperService, public toastCtrl: ToastController,) {
+  constructor(
+    private http: HttpClient,
+    public jwtHelper: JwtHelperService,
+    public toastCtrl: ToastController
+  ) {
     this.isDev = true;
   }
 
@@ -84,6 +88,7 @@ export class AuthService {
       return ep;
     } else {
       return "http://168.61.149.224/" + ep;
+      //return "http://localhost:3000/" + ep;
     }
   }
 

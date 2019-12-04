@@ -1,39 +1,46 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
 
-import { Platform } from '@ionic/angular';
-import { SplashScreen } from '@ionic-native/splash-screen/ngx';
-import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { Platform } from "@ionic/angular";
+import { SplashScreen } from "@ionic-native/splash-screen/ngx";
+import { StatusBar } from "@ionic-native/status-bar/ngx";
+import { AuthService } from "src/services/common/auth.service";
+import { Router } from "@angular/router";
 
 @Component({
-  selector: 'app-root',
-  templateUrl: 'app.component.html',
-  styleUrls: ['app.component.scss']
+  selector: "app-root",
+  templateUrl: "app.component.html",
+  styleUrls: ["app.component.scss"]
 })
 export class AppComponent {
-  public appPages = [
+  public adminPages = [
     {
-      title: 'Home',
-      url: '/home',
-      icon: 'home'
+      title: "Home",
+      url: "/home",
+      icon: "home"
+    }
+  ];
+  public userPages = [
+    {
+      title: "Home",
+      url: "/home",
+      icon: "home"
     },
     {
-      title: 'Profile',
-      url: '/profile'
+      title: "Profile",
+      url: "/profile"
     },
     {
-      title: 'AccessCode',
-      url: '/accesscode'
-    },
-    {
-      title: 'Logout',
-      url: '/logout'
+      title: "AccessCode",
+      url: "/accesscode"
     }
   ];
 
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
-    private statusBar: StatusBar
+    private statusBar: StatusBar,
+    public authService: AuthService,
+    private router: Router
   ) {
     this.initializeApp();
   }
@@ -43,5 +50,10 @@ export class AppComponent {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
+  }
+
+  logoutClicked() {
+    console.log("Logout");
+    this.router.navigate(["/"]);
   }
 }
