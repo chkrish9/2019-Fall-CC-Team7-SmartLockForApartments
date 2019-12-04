@@ -85,5 +85,20 @@ function takepicture() {
   context.drawImage(video, 0, 0, 480, 360);
 
   var data = canvas.toDataURL("image/png");
-  console.log(data);
+  var postData = {
+    base64image: data
+  };
+  $.ajax({
+    url: "http://localhost:3000/home/upload/image",
+    dataType: "text",
+    type: "post",
+    contentType: "application/x-www-form-urlencoded",
+    data: postData,
+    success: function(data, textStatus, jQxhr) {
+      console.log(data);
+    },
+    error: function(jqXhr, textStatus, errorThrown) {
+      console.log(errorThrown);
+    }
+  });
 }
