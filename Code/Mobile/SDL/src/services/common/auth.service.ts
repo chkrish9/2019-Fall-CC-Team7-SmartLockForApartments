@@ -87,7 +87,7 @@ export class AuthService {
     if (!this.isDev) {
       return ep;
     } else {
-      return "http://168.61.149.224/" + ep;
+      return "https://peaceful-springs-95779.herokuapp.com/" + ep;
       //return "http://localhost:3000/" + ep;
     }
   }

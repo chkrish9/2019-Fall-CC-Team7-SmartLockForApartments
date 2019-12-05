@@ -83,7 +83,7 @@ function takepicture() {
     base64image: data
   };
   $.ajax({
-    url: "http://localhost:3000/home/upload/image",
+    url: "https://peaceful-springs-95779.herokuapp.com/home/upload/image",
     dataType: "text",
     type: "post",
     contentType: "application/x-www-form-urlencoded",
@@ -93,13 +93,13 @@ function takepicture() {
       filename= JSON.parse(data).filename;
       let passcode = $("#txtPassCode").val();
       $.ajax({
-        url: 'http://localhost:3000/access/get/' + passcode+'/'+filename,
+        url: 'https://peaceful-springs-95779.herokuapp.com/access/get/' + passcode+'/'+filename,
         type: 'GET',
         success: function (data) {
           console.log(data);
           $(".message-success").hide();
           $(".message-fail").hide();
-          if (data) {
+          if (data === true) {
             $(".message-success").show();
           } else {
             $(".message-fail").show();

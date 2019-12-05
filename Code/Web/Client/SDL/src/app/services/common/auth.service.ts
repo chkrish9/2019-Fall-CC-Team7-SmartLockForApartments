@@ -11,7 +11,7 @@ export class AuthService {
   user: any;
   privillages: any;
   constructor(private http: HttpClient, public jwtHelper: JwtHelperService) {
-    this.isDev = false;
+    this.isDev = true;
   }
 
   authenticateUser(user) {
@@ -84,7 +84,7 @@ export class AuthService {
       return ep;
     } else {
       //return "http://localhost:3000/" + ep;
-      return "http://168.61.149.224/" + ep;
+      return "https://peaceful-springs-95779.herokuapp.com/" + ep;
     }
   }
 }
