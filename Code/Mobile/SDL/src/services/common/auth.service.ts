@@ -87,8 +87,8 @@ export class AuthService {
     if (!this.isDev) {
       return ep;
     } else {
-      //return "http://168.61.149.224/" + ep;
-      return "http://localhost:3000/" + ep;
+      return "http://168.61.149.224/" + ep;
+      //return "http://localhost:3000/" + ep;
     }
   }
 

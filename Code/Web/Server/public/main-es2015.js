@@ -1540,7 +1540,7 @@ let AuthService = class AuthService {
     constructor(http, jwtHelper) {
         this.http = http;
         this.jwtHelper = jwtHelper;
-        this.isDev = true;
+        this.isDev = false;
     }
     authenticateUser(user) {
         let headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]().set("Content-Type", "application/json");
@@ -1601,8 +1601,8 @@ let AuthService = class AuthService {
             return ep;
         }
         else {
-            return "http://localhost:3000/" + ep;
-            //return "http://168.61.149.224/" + ep;
+            //return "http://localhost:3000/" + ep;
+            return "http://168.61.149.224/" + ep;
         }
     }
 };
