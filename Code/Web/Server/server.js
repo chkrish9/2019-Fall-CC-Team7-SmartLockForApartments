@@ -50,7 +50,7 @@ passportConfig.configStrategy(app,passport);
 routes(app);
 
 //Port number
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 // //Starting the server.
 // app.listen(port, ()=>{
